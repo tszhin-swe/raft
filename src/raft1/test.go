@@ -80,7 +80,7 @@ func (ts *Test) checkOneLeader() int {
 		for term, leaders := range leaders {
 			if len(leaders) > 1 {
 				details := fmt.Sprintf("multiple leaders in term %v = %v", term, leaders)
-				tester.AnnotateCheckerFailure("multiple leaders", details)
+				tester.Annotate("","multiple leaders", details)
 				ts.Fatalf("term %d has %d (>1) leaders", term, len(leaders))
 			}
 			if term > lastTermWithLeader {
@@ -96,7 +96,7 @@ func (ts *Test) checkOneLeader() int {
 		}
 	}
 	details := fmt.Sprintf("unable to find a leader")
-	tester.AnnotateCheckerFailure("no leader", details)
+	tester.Annotate("","no leader", details)
 	ts.Fatalf("expected one leader, got none")
 	return -1
 }
@@ -112,7 +112,7 @@ func (ts *Test) checkTerms() int {
 			} else if term != xterm {
 				details := fmt.Sprintf("node ids -> terms = { %v -> %v; %v -> %v }",
 					i-1, term, i, xterm)
-				tester.AnnotateCheckerFailure("term disagreed", details)
+				tester.Annotate("","term disagreed", details)
 				ts.Fatalf("servers disagree on term")
 			}
 		}
@@ -154,7 +154,7 @@ func (ts *Test) checkNoLeader() {
 			_, is_leader := ts.srvs[i].GetState()
 			if is_leader {
 				details := fmt.Sprintf("leader = %v", i)
-				tester.AnnotateCheckerFailure("unexpected leader found", details)
+				tester.Annotate("","unexpected leader found", details)
 				ts.Fatalf(details)
 			}
 		}
@@ -169,7 +169,7 @@ func (ts *Test) checkNoAgreement(index int) {
 	if n > 0 {
 		desp := fmt.Sprintf("unexpected agreement at index %v", index)
 		details := fmt.Sprintf("%v server(s) commit incorrectly index", n)
-		tester.AnnotateCheckerFailure(desp, details)
+		tester.Annotate("",desp, details)
 		ts.Fatalf("%v committed but no majority", n)
 	}
 	desp := fmt.Sprintf("no unexpected agreement at index %v", index)
@@ -185,7 +185,7 @@ func (ts *Test) nCommitted(index int) (int, any) {
 	var cmd any = nil
 	for _, rs := range ts.srvs {
 		if rs.applyErr != "" {
-			tester.AnnotateCheckerFailure("apply error", rs.applyErr)
+			tester.Annotate("","apply error", rs.applyErr)
 			ts.t.Fatal(rs.applyErr)
 		}
 
@@ -195,7 +195,7 @@ func (ts *Test) nCommitted(index int) (int, any) {
 			if count > 0 && cmd != cmd1 {
 				text := fmt.Sprintf("committed values at index %v do not match (%v != %v)",
 					index, cmd, cmd1)
-				tester.AnnotateCheckerFailure("unmatched committed values", text)
+				tester.Annotate("","unmatched committed values", text)
 				ts.Fatalf(text)
 			}
 			count += 1
@@ -242,7 +242,7 @@ func (ts *Test) one(cmd any, expectedServers int, retry bool) int {
 				ts.srvs[starts].mu.Unlock()
 			}
 			if rf != nil {
-				//log.Printf("peer %d Start %v", starts, cmd)
+				// fmt.Printf("peer %d Start %v", starts, cmd)
 				index1, _, ok := rf.Start(cmd)
 				if ok {
 					index = index1
@@ -252,6 +252,7 @@ func (ts *Test) one(cmd any, expectedServers int, retry bool) int {
 		}
 
 		if index != -1 {
+			print("at least have leader submit %.8s at index %v", textcmd, index)
 			// somebody claimed to be the leader and to have
 			// submitted our command; wait a while for agreement.
 			t1 := time.Now()
@@ -270,7 +271,7 @@ func (ts *Test) one(cmd any, expectedServers int, retry bool) int {
 			}
 			if retry == false {
 				desp := fmt.Sprintf("agreement of %.8s failed", textcmd)
-				tester.AnnotateCheckerFailure(desp, "failed after submitting command")
+				tester.Annotate("",desp, "failed after submitting command")
 				ts.Fatalf("one(%v) failed to reach agreement", cmd)
 			}
 		} else {
@@ -279,7 +280,7 @@ func (ts *Test) one(cmd any, expectedServers int, retry bool) int {
 	}
 	if ts.checkFinished() == false {
 		desp := fmt.Sprintf("agreement of %.8s failed", textcmd)
-		tester.AnnotateCheckerFailure(desp, "failed after 10-second timeout")
+		tester.Annotate("",desp, "failed after 10-second timeout")
 		ts.Fatalf("one(%v) failed to reach agreement", cmd)
 	}
 	return -1
@@ -318,7 +319,7 @@ func (ts *Test) wait(index int, n int, startTerm int) any {
 		desp := fmt.Sprintf("less than %v servers commit index %v", n, index)
 		details := fmt.Sprintf(
 			"only %v (< %v) servers commit index %v at term %v", nd, n, index, startTerm)
-		tester.AnnotateCheckerFailure(desp, details)
+		tester.Annotate("",desp, details)
 		ts.Fatalf("only %d decided for index %d; wanted %d",
 			nd, index, n)
 	}

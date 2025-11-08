@@ -72,12 +72,15 @@ func TestReElection3A(t *testing.T) {
 	// if the old leader rejoins, that shouldn't
 	// disturb the new leader. and the old leader
 	// should switch to follower.
+	print("REJOIN OLD LEADER")
 	ts.g.ConnectOne(leader1)
 	tester.AnnotateConnection(ts.g.GetConnected())
 	leader2 := ts.checkOneLeader()
 
+
 	// if there's no quorum, no new leader should
 	// be elected.
+	print("DISCONNECT EVERYONE")
 	ts.g.DisconnectAll(leader2)
 	ts.g.DisconnectAll((leader2 + 1) % servers)
 	tester.AnnotateConnection(ts.g.GetConnected())
@@ -88,11 +91,14 @@ func TestReElection3A(t *testing.T) {
 	ts.checkNoLeader()
 
 	// if a quorum arises, it should elect a leader.
+	print("CONNECT BACK")
 	ts.g.ConnectOne((leader2 + 1) % servers)
 	tester.AnnotateConnection(ts.g.GetConnected())
+	
 	ts.checkOneLeader()
 
 	// re-join of last node shouldn't prevent leader from existing.
+	print("REJOIN ANOTHER")
 	ts.g.ConnectOne(leader2)
 	tester.AnnotateConnection(ts.g.GetConnected())
 	ts.checkOneLeader()
@@ -308,6 +314,8 @@ func TestFailNoAgree3B(t *testing.T) {
 	servers := 5
 	ts := makeTest(t, servers, true, false)
 	defer ts.cleanup()
+	defer printRaftStates(ts)
+
 
 	tester.AnnotateTest("TestFailNoAgree3B", servers)
 	ts.Begin("Test (3B): no agreement if too many followers disconnect")
@@ -341,6 +349,7 @@ func TestFailNoAgree3B(t *testing.T) {
 	ts.g.ConnectOne((leader + 2) % servers)
 	ts.g.ConnectOne((leader + 3) % servers)
 	tester.AnnotateConnection(ts.g.GetConnected())
+	print("REPAIRED NETWORK")
 
 	// the disconnected majority may have chosen a leader from
 	// among their own ranks, forgetting index 2.
@@ -992,6 +1001,7 @@ func TestFigure8Unreliable3C(t *testing.T) {
 	servers := 5
 	ts := makeTest(t, servers, false, false)
 	defer ts.cleanup()
+	defer printRaftStates(ts)
 
 	tester.AnnotateTest("TestFigure8Unreliable3C", servers)
 	ts.Begin("Test (3C): Figure 8 (unreliable)")
@@ -1385,4 +1395,19 @@ func TestSnapshotInit3D(t *testing.T) {
 
 	// do another op to trigger potential bug
 	ts.one(rand.Int(), servers, true)
+}
+
+// printRaftStates prints the state of all Raft instances.
+// It's intended to be called with defer in tests to help debugging,
+// e.g. `defer printRaftStates(ts)`.
+func printRaftStates(ts *Test) {
+	ts.t.Logf("--- Dumping Raft states ---")
+	for i := 0; i < len(ts.srvs); i++ {
+		rf := ts.srvs[i].Raft()
+		if rf != nil {
+			fmt.Println(rf.GetRaftStateForTest())
+			fmt.Println(ts.srvs[i].logs)
+		}
+			// Accessing Raft state directly, requires this to be in the same package.
+	}
 }

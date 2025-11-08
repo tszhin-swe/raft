@@ -10,6 +10,9 @@ type Raft interface {
 	// leader
 	GetState() (int, bool)
 
+	// GetRaftStateForTest returns debugging information about a Raft peer.
+	GetRaftStateForTest() string
+
 	// For Snaphots (3D)
 	Snapshot(index int, snapshot []byte)
 	PersistBytes() int
@@ -18,6 +21,7 @@ type Raft interface {
 	// any long-running go routines.
 	Kill()
 }
+
 
 // As each Raft peer becomes aware that successive log entries are
 // committed, the peer should send an ApplyMsg to the server (or
