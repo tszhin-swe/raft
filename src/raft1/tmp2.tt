@@ -1,0 +1,244 @@
+Test (3C): basic persistence (reliable network)...
+[Node 0][Candidate] start election Term: 1 [21:02:45.837]
+[Node 1][Follower] Received Request Vote Term: 0 [21:02:45.837]
+[Node 2][Follower] Received Request Vote Term: 0 [21:02:45.837]
+[Node 2][Follower] demoted to follower Term: 1 [21:02:45.837]
+[Node 1][Follower] demoted to follower Term: 1 [21:02:45.837]
+[Node 0][Leader] ===Start called11=== Term: 1 [21:02:45.886]
+at least have leader submit %.8s at index %v111[Node 2][Follower] received appendEntry from peer 0 Term: 1 [21:02:45.935]
+[Node 1][Follower] received appendEntry from peer 0 Term: 1 [21:02:45.935]
+peer 2 replicated up to 1
+[Node 0][Leader] commit index updated to 1 Term: 1 [21:02:45.935]
+[Node 0][Leader] applied changes{true 11 1 false [] 0 0} Term: 1 [21:02:45.935]
+peer 1 replicated up to 1
+[Node 2][Follower] received appendEntry from peer 0 Term: 1 [21:02:46.036]
+[Node 2][Follower] applied changes{true 11 1 false [] 0 0} Term: 1 [21:02:46.036]
+[Node 1][Follower] received appendEntry from peer 0 Term: 1 [21:02:46.036]
+[Node 1][Follower] applied changes{true 11 1 false [] 0 0} Term: 1 [21:02:46.036]
+peer 2 replicated up to 2
+peer 1 replicated up to 2
+[Node 0][Candidate] start election Term: 2 [21:02:46.355]
+[Node 2][Follower] Received Request Vote Term: 1 [21:02:46.355]
+[Node 1][Follower] Received Request Vote Term: 1 [21:02:46.355]
+[Node 1][Follower] demoted to follower Term: 2 [21:02:46.355]
+[Node 2][Follower] demoted to follower Term: 2 [21:02:46.355]
+[Node 0][Leader] ===Start called12=== Term: 2 [21:02:46.405]
+at least have leader submit %.8s at index %v122[Node 2][Follower] received appendEntry from peer 0 Term: 2 [21:02:46.455]
+[Node 1][Follower] received appendEntry from peer 0 Term: 2 [21:02:46.455]
+peer 2 replicated up to 2
+[Node 0][Leader] commit index updated to 2 Term: 2 [21:02:46.455]
+[Node 0][Leader] applied changes{true 11 1 false [] 0 0} Term: 2 [21:02:46.455]
+[Node 0][Leader] applied changes{true 12 2 false [] 0 0} Term: 2 [21:02:46.455]
+peer 1 replicated up to 2
+[Node 2][Follower] received appendEntry from peer 0 Term: 2 [21:02:46.556]
+[Node 2][Follower] applied changes{true 11 1 false [] 0 0} Term: 2 [21:02:46.556]
+[Node 1][Follower] received appendEntry from peer 0 Term: 2 [21:02:46.556]
+[Node 2][Follower] applied changes{true 12 2 false [] 0 0} Term: 2 [21:02:46.556]
+[Node 1][Follower] applied changes{true 11 1 false [] 0 0} Term: 2 [21:02:46.556]
+[Node 1][Follower] applied changes{true 12 2 false [] 0 0} Term: 2 [21:02:46.556]
+peer 2 replicated up to 3
+peer 1 replicated up to 3
+[Node 2][Follower] received appendEntry from peer 0 Term: 2 [21:02:46.656]
+[Node 1][Follower] received appendEntry from peer 0 Term: 2 [21:02:46.656]
+peer 2 replicated up to 3
+peer 1 replicated up to 3
+[Node 2][Follower] received appendEntry from peer 0 Term: 2 [21:02:46.757]
+[Node 1][Follower] received appendEntry from peer 0 Term: 2 [21:02:46.757]
+peer 2 replicated up to 3
+peer 1 replicated up to 3
+[Node 1][Follower] received appendEntry from peer 0 Term: 2 [21:02:46.858]
+[Node 2][Follower] received appendEntry from peer 0 Term: 2 [21:02:46.858]
+peer 1 replicated up to 3
+peer 2 replicated up to 3
+[Node 2][Follower] received appendEntry from peer 0 Term: 2 [21:02:46.959]
+[Node 1][Follower] received appendEntry from peer 0 Term: 2 [21:02:46.959]
+peer 2 replicated up to 3
+peer 1 replicated up to 3
+[Node 0][Candidate] start election Term: 3 [21:02:47.325]
+[Node 2][Follower] Received Request Vote Term: 2 [21:02:47.326]
+[Node 1][Follower] Received Request Vote Term: 2 [21:02:47.326]
+[Node 1][Follower] demoted to follower Term: 3 [21:02:47.326]
+[Node 2][Follower] demoted to follower Term: 3 [21:02:47.326]
+[Node 2][Follower] received appendEntry from peer 0 Term: 3 [21:02:47.327]
+[Node 1][Follower] received appendEntry from peer 0 Term: 3 [21:02:47.327]
+peer 2 replicated up to 3
+peer 1 replicated up to 3
+[Node 0][Leader] ===Start called13=== Term: 3 [21:02:47.328]
+at least have leader submit %.8s at index %v133[Node 2][Follower] received appendEntry from peer 0 Term: 3 [21:02:47.428]
+[Node 1][Follower] received appendEntry from peer 0 Term: 3 [21:02:47.428]
+peer 2 replicated up to 3
+[Node 0][Leader] commit index updated to 3 Term: 3 [21:02:47.428]
+[Node 0][Leader] applied changes{true 11 1 false [] 0 0} Term: 3 [21:02:47.428]
+[Node 0][Leader] applied changes{true 12 2 false [] 0 0} Term: 3 [21:02:47.428]
+[Node 0][Leader] applied changes{true 13 3 false [] 0 0} Term: 3 [21:02:47.428]
+peer 1 replicated up to 3
+[Node 1][Follower] received appendEntry from peer 0 Term: 3 [21:02:47.528]
+[Node 1][Follower] applied changes{true 13 3 false [] 0 0} Term: 3 [21:02:47.528]
+[Node 2][Follower] received appendEntry from peer 0 Term: 3 [21:02:47.528]
+[Node 2][Follower] applied changes{true 13 3 false [] 0 0} Term: 3 [21:02:47.528]
+peer 1 replicated up to 4
+peer 2 replicated up to 4
+[Node 2][Follower] received appendEntry from peer 0 Term: 3 [21:02:47.628]
+[Node 1][Follower] received appendEntry from peer 0 Term: 3 [21:02:47.628]
+peer 2 replicated up to 4
+peer 1 replicated up to 4
+[Node 2][Follower] received appendEntry from peer 0 Term: 3 [21:02:47.728]
+[Node 1][Follower] received appendEntry from peer 0 Term: 3 [21:02:47.728]
+peer 2 replicated up to 4
+peer 1 replicated up to 4
+[Node 2][Follower] received appendEntry from peer 0 Term: 3 [21:02:47.829]
+[Node 1][Follower] received appendEntry from peer 0 Term: 3 [21:02:47.829]
+peer 2 replicated up to 4
+peer 1 replicated up to 4
+[Node 2][Follower] received appendEntry from peer 0 Term: 3 [21:02:47.930]
+[Node 1][Follower] received appendEntry from peer 0 Term: 3 [21:02:47.930]
+peer 2 replicated up to 4
+peer 1 replicated up to 4
+[Node 1][Candidate] start election Term: 4 [21:02:48.332]
+[Node 2][Follower] Received Request Vote Term: 3 [21:02:48.333]
+[Node 2][Follower] demoted to follower Term: 4 [21:02:48.333]
+[Node 1][Leader] ===Start called14=== Term: 4 [21:02:48.351]
+at least have leader submit %.8s at index %v144[Node 2][Follower] received appendEntry from peer 1 Term: 4 [21:02:48.365]
+peer 2 replicated up to 4
+[Node 1][Leader] commit index updated to 4 Term: 4 [21:02:48.365]
+[Node 1][Leader] applied changes{true 14 4 false [] 0 0} Term: 4 [21:02:48.365]
+[Node 2][Follower] received appendEntry from peer 1 Term: 4 [21:02:48.466]
+[Node 2][Follower] applied changes{true 14 4 false [] 0 0} Term: 4 [21:02:48.466]
+peer 2 replicated up to 5
+[Node 2][Follower] received appendEntry from peer 1 Term: 4 [21:02:48.566]
+[Node 0][Follower] demoted to follower Term: 4 [21:02:48.566]
+[Node 0][Follower] received appendEntry from peer 1 Term: 4 [21:02:48.566]
+[Node 0][Follower] applied changes{true 11 1 false [] 0 0} Term: 4 [21:02:48.566]
+[Node 0][Follower] applied changes{true 12 2 false [] 0 0} Term: 4 [21:02:48.566]
+peer 2 replicated up to 5
+[Node 0][Follower] applied changes{true 13 3 false [] 0 0} Term: 4 [21:02:48.567]
+[Node 0][Follower] applied changes{true 14 4 false [] 0 0} Term: 4 [21:02:48.567]
+peer 0 replicated up to 4
+[Node 0][Follower] received appendEntry from peer 1 Term: 4 [21:02:48.667]
+[Node 2][Follower] received appendEntry from peer 1 Term: 4 [21:02:48.667]
+peer 0 replicated up to 5
+peer 2 replicated up to 5
+[Node 0][Follower] received appendEntry from peer 1 Term: 4 [21:02:48.767]
+[Node 2][Follower] received appendEntry from peer 1 Term: 4 [21:02:48.767]
+peer 0 replicated up to 5
+peer 2 replicated up to 5
+[Node 0][Follower] received appendEntry from peer 1 Term: 4 [21:02:48.867]
+[Node 2][Follower] received appendEntry from peer 1 Term: 4 [21:02:48.867]
+peer 0 replicated up to 5
+peer 2 replicated up to 5
+[Node 2][Follower] received appendEntry from peer 1 Term: 4 [21:02:48.968]
+[Node 0][Follower] received appendEntry from peer 1 Term: 4 [21:02:48.968]
+peer 2 replicated up to 5
+peer 0 replicated up to 5
+[Node 2][Follower] received appendEntry from peer 1 Term: 4 [21:02:49.068]
+[Node 0][Follower] received appendEntry from peer 1 Term: 4 [21:02:49.068]
+peer 2 replicated up to 5
+peer 0 replicated up to 5
+[Node 1][Leader] ===Start called15=== Term: 4 [21:02:49.129]
+at least have leader submit %.8s at index %v155[Node 0][Follower] received appendEntry from peer 1 Term: 4 [21:02:49.169]
+peer 0 replicated up to 5
+[Node 1][Leader] commit index updated to 5 Term: 4 [21:02:49.169]
+[Node 1][Leader] applied changes{true 15 5 false [] 0 0} Term: 4 [21:02:49.169]
+[Node 0][Follower] received appendEntry from peer 1 Term: 4 [21:02:49.269]
+[Node 0][Follower] applied changes{true 15 5 false [] 0 0} Term: 4 [21:02:49.269]
+peer 0 replicated up to 6
+[Node 1][Leader] ===Start called16=== Term: 4 [21:02:49.276]
+at least have leader submit %.8s at index %v166[Node 0][Follower] received appendEntry from peer 1 Term: 4 [21:02:49.370]
+[Node 2][Follower] received appendEntry from peer 1 Term: 4 [21:02:49.370]
+[Node 2][Follower] applied changes{true 11 1 false [] 0 0} Term: 4 [21:02:49.370]
+[Node 2][Follower] applied changes{true 12 2 false [] 0 0} Term: 4 [21:02:49.370]
+[Node 2][Follower] applied changes{true 13 3 false [] 0 0} Term: 4 [21:02:49.370]
+[Node 2][Follower] applied changes{true 14 4 false [] 0 0} Term: 4 [21:02:49.370]
+[Node 2][Follower] applied changes{true 15 5 false [] 0 0} Term: 4 [21:02:49.370]
+peer 0 replicated up to 6
+[Node 1][Leader] commit index updated to 6 Term: 4 [21:02:49.370]
+[Node 1][Leader] applied changes{true 16 6 false [] 0 0} Term: 4 [21:02:49.370]
+peer 2 replicated up to 5
+[Node 2][Follower] received appendEntry from peer 1 Term: 4 [21:02:49.471]
+[Node 0][Follower] received appendEntry from peer 1 Term: 4 [21:02:49.471]
+[Node 0][Follower] applied changes{true 16 6 false [] 0 0} Term: 4 [21:02:49.471]
+[Node 2][Follower] applied changes{true 16 6 false [] 0 0} Term: 4 [21:02:49.471]
+peer 0 replicated up to 7
+peer 2 replicated up to 7
+  ... Passed --  time  4.0s #peers 3 #RPCs    62 #Ops    0
+Test (3C): more persistence (reliable network)...
+[Node 0][Candidate] start election Term: 1 [21:02:49.789]
+[Node 4][Follower] Received Request Vote Term: 0 [21:02:49.790]
+[Node 4][Follower] demoted to follower Term: 1 [21:02:49.790]
+[Node 1][Follower] Received Request Vote Term: 0 [21:02:49.790]
+[Node 1][Follower] demoted to follower Term: 1 [21:02:49.790]
+[Node 2][Follower] Received Request Vote Term: 0 [21:02:49.790]
+[Node 2][Follower] demoted to follower Term: 1 [21:02:49.790]
+[Node 3][Follower] Received Request Vote Term: 0 [21:02:49.790]
+[Node 3][Follower] demoted to follower Term: 1 [21:02:49.790]
+[Node 0][Leader] ===Start called11=== Term: 1 [21:02:49.838]
+at least have leader submit %.8s at index %v111[Node 2][Follower] received appendEntry from peer 0 Term: 1 [21:02:49.888]
+[Node 4][Follower] received appendEntry from peer 0 Term: 1 [21:02:49.888]
+[Node 3][Follower] received appendEntry from peer 0 Term: 1 [21:02:49.888]
+[Node 1][Follower] received appendEntry from peer 0 Term: 1 [21:02:49.888]
+peer 2 replicated up to 1
+peer 4 replicated up to 1
+[Node 0][Leader] commit index updated to 1 Term: 1 [21:02:49.888]
+[Node 0][Leader] applied changes{true 11 1 false [] 0 0} Term: 1 [21:02:49.889]
+peer 3 replicated up to 1
+peer 1 replicated up to 1
+[Node 1][Follower] received appendEntry from peer 0 Term: 1 [21:02:49.989]
+[Node 1][Follower] applied changes{true 11 1 false [] 0 0} Term: 1 [21:02:49.989]
+[Node 4][Follower] received appendEntry from peer 0 Term: 1 [21:02:49.989]
+peer 1 replicated up to 2
+[Node 3][Follower] received appendEntry from peer 0 Term: 1 [21:02:49.989]
+[Node 3][Follower] applied changes{true 11 1 false [] 0 0} Term: 1 [21:02:49.989]
+[Node 2][Follower] received appendEntry from peer 0 Term: 1 [21:02:49.989]
+[Node 2][Follower] applied changes{true 11 1 false [] 0 0} Term: 1 [21:02:49.989]
+peer 3 replicated up to 2
+[Node 4][Follower] applied changes{true 11 1 false [] 0 0} Term: 1 [21:02:49.989]
+peer 2 replicated up to 2
+peer 4 replicated up to 2
+[Node 1][Follower] received appendEntry from peer 0 Term: 1 [21:02:50.089]
+[Node 3][Follower] received appendEntry from peer 0 Term: 1 [21:02:50.089]
+peer 1 replicated up to 2
+[Node 2][Follower] received appendEntry from peer 0 Term: 1 [21:02:50.089]
+[Node 4][Follower] received appendEntry from peer 0 Term: 1 [21:02:50.089]
+peer 3 replicated up to 2
+peer 4 replicated up to 2
+peer 2 replicated up to 2
+[Node 4][Follower] received appendEntry from peer 0 Term: 1 [21:02:50.190]
+[Node 2][Follower] received appendEntry from peer 0 Term: 1 [21:02:50.190]
+peer 4 replicated up to 2
+[Node 1][Follower] received appendEntry from peer 0 Term: 1 [21:02:50.190]
+peer 2 replicated up to 2
+[Node 3][Follower] received appendEntry from peer 0 Term: 1 [21:02:50.190]
+peer 1 replicated up to 2
+peer 3 replicated up to 2
+[Node 1][Follower] received appendEntry from peer 0 Term: 1 [21:02:50.291]
+[Node 2][Follower] received appendEntry from peer 0 Term: 1 [21:02:50.291]
+peer 1 replicated up to 2
+[Node 4][Follower] received appendEntry from peer 0 Term: 1 [21:02:50.291]
+[Node 3][Follower] received appendEntry from peer 0 Term: 1 [21:02:50.291]
+peer 2 replicated up to 2
+peer 4 replicated up to 2
+peer 3 replicated up to 2
+[Node 1][Follower] received appendEntry from peer 0 Term: 1 [21:02:50.391]
+[Node 3][Follower] received appendEntry from peer 0 Term: 1 [21:02:50.391]
+peer 1 replicated up to 2
+[Node 2][Follower] received appendEntry from peer 0 Term: 1 [21:02:50.391]
+[Node 4][Follower] received appendEntry from peer 0 Term: 1 [21:02:50.391]
+peer 3 replicated up to 2
+peer 4 replicated up to 2
+peer 2 replicated up to 2
+[Node 0][Leader] ===Start called12=== Term: 1 [21:02:50.490]
+at least have leader submit %.8s at index %v122[Node 4][Follower] received appendEntry from peer 0 Term: 1 [21:02:50.491]
+[Node 3][Follower] received appendEntry from peer 0 Term: 1 [21:02:50.491]
+peer 4 replicated up to 2
+peer 3 replicated up to 2
+[Node 0][Leader] commit index updated to 2 Term: 1 [21:02:50.491]
+[Node 0][Leader] applied changes{true 12 2 false [] 0 0} Term: 1 [21:02:50.491]
+[Node 4][Follower] received appendEntry from peer 0 Term: 1 [21:02:50.592]
+[Node 4][Follower] applied changes{true 12 2 false [] 0 0} Term: 1 [21:02:50.592]
+[Node 3][Follower] received appendEntry from peer 0 Term: 1 [21:02:50.592]
+[Node 3][Follower] applied changes{true 12 2 false [] 0 0} Term: 1 [21:02:50.592]
+peer 4 replicated up to 3
+peer 3 replicated up to 3
+info: wrote visualization to /var/folders/s3/g714w5vj18v77kpvg21k7pq80000gn/T/porcupine-3344860909.html
+exit status 1
+FAIL	6.5840/raft1	5.581s

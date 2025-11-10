@@ -141,6 +141,7 @@ func TestBasicAgree3B(t *testing.T) {
 	servers := 3
 	ts := makeTest(t, servers, true, false)
 	defer ts.cleanup()
+	defer printRaftStates(ts)
 
 	tester.AnnotateTest("TestBasicAgree3B", servers)
 	ts.Begin("Test (3B): basic agreement")
