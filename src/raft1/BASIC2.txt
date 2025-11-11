@@ -1,0 +1,54 @@
+Test (3B): basic agreement (reliable network)...
+[Node 0][Candidate] start election Term: 1 [15:35:37.489]
+[Node 1][Follower] Received Request Vote Term: 0 [15:35:37.490]
+[Node 1][Follower] demoted to follower Term: 1 [15:35:37.490]
+[Node 2][Follower] Received Request Vote Term: 0 [15:35:37.490]
+[Node 2][Follower] demoted to follower Term: 1 [15:35:37.490]
+[Node 0][Leader] ===Start called100=== Term: 1 [15:35:37.539]
+at least have leader submit %.8s at index %v1001[Node 1][Follower] received appendEntry from peer 0 Term: 1 [15:35:37.588]
+[Node 2][Follower] received appendEntry from peer 0 Term: 1 [15:35:37.588]
+peer 2 replicated up to 1
+[Node 0][Leader] commit index updated to 1 Term: 1 [15:35:37.588]
+[Node 0][Leader] applied changes{true 100 1 false [] 0 0} Term: 1 [15:35:37.588]
+peer 1 replicated up to 1
+[Node 2][Follower] received appendEntry from peer 0 Term: 1 [15:35:37.688]
+[Node 1][Follower] received appendEntry from peer 0 Term: 1 [15:35:37.688]
+[Node 2][Follower] applied changes{true 100 1 false [] 0 0} Term: 1 [15:35:37.689]
+[Node 1][Follower] applied changes{true 100 1 false [] 0 0} Term: 1 [15:35:37.689]
+peer 2 replicated up to 2
+peer 1 replicated up to 2
+[Node 0][Leader] ===Start called200=== Term: 1 [15:35:37.704]
+at least have leader submit %.8s at index %v2002[Node 1][Follower] received appendEntry from peer 0 Term: 1 [15:35:37.790]
+[Node 2][Follower] received appendEntry from peer 0 Term: 1 [15:35:37.790]
+peer 1 replicated up to 2
+[Node 0][Leader] commit index updated to 2 Term: 1 [15:35:37.791]
+[Node 0][Leader] applied changes{true 200 2 false [] 0 0} Term: 1 [15:35:37.791]
+peer 2 replicated up to 2
+[Node 2][Follower] received appendEntry from peer 0 Term: 1 [15:35:37.891]
+[Node 1][Follower] received appendEntry from peer 0 Term: 1 [15:35:37.891]
+[Node 2][Follower] applied changes{true 200 2 false [] 0 0} Term: 1 [15:35:37.891]
+[Node 1][Follower] applied changes{true 200 2 false [] 0 0} Term: 1 [15:35:37.891]
+peer 2 replicated up to 3
+peer 1 replicated up to 3
+[Node 0][Leader] ===Start called300=== Term: 1 [15:35:37.893]
+at least have leader submit %.8s at index %v3003[Node 1][Follower] received appendEntry from peer 0 Term: 1 [15:35:37.991]
+[Node 2][Follower] received appendEntry from peer 0 Term: 1 [15:35:37.991]
+peer 1 replicated up to 3
+[Node 0][Leader] commit index updated to 3 Term: 1 [15:35:37.992]
+[Node 0][Leader] applied changes{true 300 3 false [] 0 0} Term: 1 [15:35:37.992]
+peer 2 replicated up to 3
+[Node 1][Follower] received appendEntry from peer 0 Term: 1 [15:35:38.092]
+[Node 2][Follower] received appendEntry from peer 0 Term: 1 [15:35:38.092]
+[Node 1][Follower] applied changes{true 300 3 false [] 0 0} Term: 1 [15:35:38.092]
+[Node 2][Follower] applied changes{true 300 3 false [] 0 0} Term: 1 [15:35:38.092]
+peer 1 replicated up to 4
+peer 2 replicated up to 4
+dump Node 0 State: Leader Term: 1 VotedFor: -1 CommitIdx: 3 LastApplied: 3 Log: [{Term:0 Content:} {Term:1 Content:100} {Term:1 Content:200} {Term:1 Content:300}]
+map[1:100 2:200 3:300]
+dump Node 1 State: Follower Term: 1 VotedFor: 0 CommitIdx: 3 LastApplied: 3 Log: [{Term:0 Content:} {Term:1 Content:100} {Term:1 Content:200} {Term:1 Content:300}]
+map[1:100 2:200 3:300]
+dump Node 2 State: Follower Term: 1 VotedFor: 0 CommitIdx: 3 LastApplied: 3 Log: [{Term:0 Content:} {Term:1 Content:100} {Term:1 Content:200} {Term:1 Content:300}]
+map[1:100 2:200 3:300]
+  ... Passed --  time  0.9s #peers 3 #RPCs    14 #Ops    0
+PASS
+ok  	6.5840/raft1	2.111s

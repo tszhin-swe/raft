@@ -241,6 +241,7 @@ func TestLeaderFailure3B(t *testing.T) {
 	servers := 3
 	ts := makeTest(t, servers, true, false)
 	defer ts.cleanup()
+	defer printRaftStates(ts)
 
 	tester.AnnotateTest("TestLeaderFailure3B", servers)
 	ts.Begin("Test (3B): test failure of leaders")
@@ -280,6 +281,7 @@ func TestFailAgree3B(t *testing.T) {
 	servers := 3
 	ts := makeTest(t, servers, true, false)
 	defer ts.cleanup()
+	defer printRaftStates(ts)
 
 	tester.AnnotateTest("TestFailAgree3B", servers)
 	ts.Begin("Test (3B): agreement after follower reconnects")
@@ -1239,6 +1241,7 @@ func snapcommon(t *testing.T, name string, disconnect bool, reliable bool, crash
 	servers := 3
 	ts := makeTest(t, servers, reliable, true)
 	defer ts.cleanup()
+	defer printRaftStates(ts)
 
 	// Inconsistent with other test cases, but don't want to change API.
 	tester.AnnotateTest(name, servers)
@@ -1306,6 +1309,7 @@ func snapcommon(t *testing.T, name string, disconnect bool, reliable bool, crash
 }
 
 func TestSnapshotBasic3D(t *testing.T) {
+	print("hi")
 	snapcommon(t, "Test (3D): snapshots basic", false, true, false)
 }
 

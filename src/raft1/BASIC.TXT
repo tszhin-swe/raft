@@ -1,0 +1,645 @@
+Test (3D): install snapshots (disconnect) (reliable network)...
+[Node 0][Candidate] start election Term: 1 [01:23:26.142]
+[Node 2][Follower] Received Request Vote Term: 0 [01:23:26.145]
+[Node 2][Follower] demoted to follower Term: 1 [01:23:26.145]
+[Node 1][Follower] Received Request Vote Term: 0 [01:23:26.145]
+[Node 1][Follower] demoted to follower Term: 1 [01:23:26.145]
+[Node 0][Leader] ===Start called5377310038833364204=== Term: 1 [01:23:26.191]
+at least have leader submit %.8s at index %v53773100388333642041[Node 2][Follower] Received Append Entries from peer 0 Term: 1 [01:23:26.240]
+[Node 1][Follower] Received Append Entries from peer 0 Term: 1 [01:23:26.240]
+[Node 2][Follower] received appendEntry from peer 0[{1 5377310038833364204}] Term: 1 [01:23:26.240]
+[Node 1][Follower] received appendEntry from peer 0[{1 5377310038833364204}] Term: 1 [01:23:26.240]
+peer 2 replicated up to 1
+[Node 0][Leader] commit index updated to 1 Term: 1 [01:23:26.241]
+[Node 0][Leader] applied changes{true 5377310038833364204 1 false [] 0 0} Term: 1 [01:23:26.241]
+peer 1 replicated up to 1
+[Node 2][Follower] Received Append Entries from peer 0 Term: 1 [01:23:26.340]
+[Node 1][Follower] Received Append Entries from peer 0 Term: 1 [01:23:26.340]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 1 [01:23:26.341]
+[Node 1][Follower] received appendEntry from peer 0[] Term: 1 [01:23:26.341]
+[Node 2][Follower] applied changes{true 5377310038833364204 1 false [] 0 0} Term: 1 [01:23:26.341]
+[Node 1][Follower] applied changes{true 5377310038833364204 1 false [] 0 0} Term: 1 [01:23:26.341]
+peer 2 replicated up to 1
+peer 1 replicated up to 1
+[Node 1][Follower] Received Append Entries from peer 0 Term: 1 [01:23:26.441]
+[Node 2][Follower] Received Append Entries from peer 0 Term: 1 [01:23:26.441]
+[Node 1][Follower] received appendEntry from peer 0[] Term: 1 [01:23:26.442]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 1 [01:23:26.442]
+peer 1 replicated up to 1
+peer 2 replicated up to 1
+[Node 2][Follower] Received Append Entries from peer 0 Term: 1 [01:23:26.542]
+[Node 1][Follower] Received Append Entries from peer 0 Term: 1 [01:23:26.542]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 1 [01:23:26.543]
+[Node 1][Follower] received appendEntry from peer 0[] Term: 1 [01:23:26.543]
+peer 2 replicated up to 1
+peer 1 replicated up to 1
+[Node 1][Follower] Received Append Entries from peer 0 Term: 1 [01:23:26.643]
+[Node 2][Follower] Received Append Entries from peer 0 Term: 1 [01:23:26.643]
+[Node 1][Follower] received appendEntry from peer 0[] Term: 1 [01:23:26.643]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 1 [01:23:26.643]
+peer 2 replicated up to 1
+peer 1 replicated up to 1
+[Node 2][Follower] Received Append Entries from peer 0 Term: 1 [01:23:26.743]
+[Node 1][Follower] Received Append Entries from peer 0 Term: 1 [01:23:26.743]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 1 [01:23:26.743]
+[Node 1][Follower] received appendEntry from peer 0[] Term: 1 [01:23:26.743]
+peer 2 replicated up to 1
+peer 1 replicated up to 1
+[Node 2][Follower] Received Append Entries from peer 0 Term: 1 [01:23:26.843]
+[Node 1][Follower] Received Append Entries from peer 0 Term: 1 [01:23:26.843]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 1 [01:23:26.844]
+[Node 1][Follower] received appendEntry from peer 0[] Term: 1 [01:23:26.844]
+peer 2 replicated up to 1
+peer 1 replicated up to 1
+[Node 0][Leader] ===Start called5925944265122202637=== Term: 1 [01:23:26.898]
+at least have leader submit %.8s at index %v59259442651222026372[Node 2][Follower] Received Append Entries from peer 0 Term: 1 [01:23:26.944]
+[Node 2][Follower] received appendEntry from peer 0[{1 5925944265122202637}] Term: 1 [01:23:26.944]
+peer 2 replicated up to 2
+[Node 0][Leader] commit index updated to 2 Term: 1 [01:23:26.945]
+[Node 0][Leader] applied changes{true 5925944265122202637 2 false [] 0 0} Term: 1 [01:23:26.945]
+[Node 2][Follower] Received Append Entries from peer 0 Term: 1 [01:23:27.045]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 1 [01:23:27.045]
+[Node 2][Follower] applied changes{true 5925944265122202637 2 false [] 0 0} Term: 1 [01:23:27.045]
+peer 2 replicated up to 2
+[Node 0][Leader] ===Start called4105130563573050678=== Term: 1 [01:23:27.063]
+[Node 0][Leader] ===Start called6285916395434278075=== Term: 1 [01:23:27.064]
+[Node 0][Leader] ===Start called4586968157932106312=== Term: 1 [01:23:27.064]
+[Node 0][Leader] ===Start called8613400834276272502=== Term: 1 [01:23:27.065]
+[Node 0][Leader] ===Start called3878816341485912765=== Term: 1 [01:23:27.065]
+[Node 0][Leader] ===Start called8373391509355189799=== Term: 1 [01:23:27.065]
+[Node 0][Leader] ===Start called4495898017115903900=== Term: 1 [01:23:27.066]
+[Node 0][Leader] ===Start called7832271792211252424=== Term: 1 [01:23:27.066]
+[Node 0][Leader] ===Start called3085809946835744769=== Term: 1 [01:23:27.067]
+[Node 0][Leader] ===Start called8064761925055776703=== Term: 1 [01:23:27.067]
+at least have leader submit %.8s at index %v806476192505577670312[Node 0][Leader] no response from1 Term: 1 [01:23:27.068]
+[Node 2][Follower] Received Append Entries from peer 0 Term: 1 [01:23:27.145]
+[Node 2][Follower] received appendEntry from peer 0[{1 4105130563573050678} {1 6285916395434278075} {1 4586968157932106312} {1 8613400834276272502} {1 3878816341485912765} {1 8373391509355189799} {1 4495898017115903900} {1 7832271792211252424} {1 3085809946835744769} {1 8064761925055776703}] Term: 1 [01:23:27.145]
+peer 2 replicated up to 12
+[Node 0][Leader] commit index updated to 12 Term: 1 [01:23:27.146]
+[Node 0][Leader] applied changes{true 4105130563573050678 3 false [] 0 0} Term: 1 [01:23:27.146]
+[Node 0][Leader] applied changes{true 6285916395434278075 4 false [] 0 0} Term: 1 [01:23:27.147]
+[Node 0][Leader] applied changes{true 4586968157932106312 5 false [] 0 0} Term: 1 [01:23:27.147]
+[Node 0][Leader] applied changes{true 8613400834276272502 6 false [] 0 0} Term: 1 [01:23:27.147]
+[Node 0][Leader] applied changes{true 3878816341485912765 7 false [] 0 0} Term: 1 [01:23:27.147]
+[Node 0][Leader] applied changes{true 8373391509355189799 8 false [] 0 0} Term: 1 [01:23:27.147]
+[Node 0][Leader] applied changes{true 4495898017115903900 9 false [] 0 0} Term: 1 [01:23:27.147]
+[Node 0][Leader] snapshot called for index9 9 [{1 7832271792211252424} {1 3085809946835744769} {1 8064761925055776703}] old len 12 new len 3 Term: 1 [01:23:27.147]
+[Node 0][Leader] applied changes{true 7832271792211252424 10 false [] 0 0} Term: 1 [01:23:27.148]
+[Node 0][Leader] applied changes{true 3085809946835744769 11 false [] 0 0} Term: 1 [01:23:27.148]
+[Node 0][Leader] applied changes{true 8064761925055776703 12 false [] 0 0} Term: 1 [01:23:27.149]
+sus[Node 1][Candidate] start election Term: 2 [01:23:27.245]
+[Node 2][Follower] Received Append Entries from peer 0 Term: 1 [01:23:27.246]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 1 [01:23:27.246]
+[Node 2][Follower] applied changes{true 4105130563573050678 3 false [] 0 0} Term: 1 [01:23:27.246]
+[Node 2][Follower] applied changes{true 6285916395434278075 4 false [] 0 0} Term: 1 [01:23:27.246]
+[Node 2][Follower] applied changes{true 4586968157932106312 5 false [] 0 0} Term: 1 [01:23:27.247]
+[Node 2][Follower] applied changes{true 8613400834276272502 6 false [] 0 0} Term: 1 [01:23:27.247]
+[Node 2][Follower] applied changes{true 3878816341485912765 7 false [] 0 0} Term: 1 [01:23:27.247]
+[Node 2][Follower] applied changes{true 8373391509355189799 8 false [] 0 0} Term: 1 [01:23:27.247]
+[Node 2][Follower] applied changes{true 4495898017115903900 9 false [] 0 0} Term: 1 [01:23:27.247]
+[Node 2][Follower] snapshot called for index9 9 [{1 7832271792211252424} {1 3085809946835744769} {1 8064761925055776703}] old len 12 new len 3 Term: 1 [01:23:27.247]
+[Node 2][Follower] applied changes{true 7832271792211252424 10 false [] 0 0} Term: 1 [01:23:27.247]
+[Node 2][Follower] applied changes{true 3085809946835744769 11 false [] 0 0} Term: 1 [01:23:27.247]
+[Node 2][Follower] applied changes{true 8064761925055776703 12 false [] 0 0} Term: 1 [01:23:27.247]
+peer 2 replicated up to 12
+[Node 0][Leader] ===Start called4574977471206857454=== Term: 1 [01:23:27.255]
+at least have leader submit %.8s at index %v457497747120685745413sus[Node 1][Candidate] InstallSnapshot called Term: 2 [01:23:27.347]
+[Node 2][Follower] Received Append Entries from peer 0 Term: 1 [01:23:27.347]
+[Node 2][Follower] received appendEntry from peer 0[{1 4574977471206857454}] Term: 1 [01:23:27.347]
+[Node 0][Follower] demoted to follower Term: 2 [01:23:27.347]
+[Node 0][Candidate] start election Term: 3 [01:23:27.350]
+[Node 1][Candidate] Received Request Vote Term: 2 [01:23:27.350]
+[Node 1][Follower] demoted to follower Term: 3 [01:23:27.350]
+[Node 2][Follower] Received Request Vote Term: 1 [01:23:27.350]
+[Node 2][Follower] demoted to follower Term: 3 [01:23:27.350]
+[Node 1][Follower] Received Append Entries from peer 0 Term: 3 [01:23:27.447]
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:27.447]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:27.448]
+[Node 0][Leader] conflict from 1 2 -1setting nextIndex from 14 Term: 3 [01:23:27.448]
+peer 2 replicated up to 13
+sus[Node 1][Follower] InstallSnapshot called Term: 3 [01:23:27.548]
+[Node 1][Follower] installing snapshot up to idx 9 Term: 3 [01:23:27.548]
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:27.548]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:27.549]
+peer 2 replicated up to 13
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:27.649]
+[Node 1][Follower] Received Append Entries from peer 0 Term: 3 [01:23:27.649]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:27.649]
+[Node 0][Leader] conflict from 1 1 -1setting nextIndex from 10 Term: 3 [01:23:27.650]
+peer 2 replicated up to 13
+sus[Node 1][Follower] InstallSnapshot called Term: 3 [01:23:27.749]
+[Node 1][Follower] installing snapshot up to idx 9 Term: 3 [01:23:27.749]
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:27.749]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:27.750]
+peer 2 replicated up to 13
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:27.850]
+[Node 1][Follower] Received Append Entries from peer 0 Term: 3 [01:23:27.850]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:27.850]
+[Node 0][Leader] conflict from 1 1 -1setting nextIndex from 10 Term: 3 [01:23:27.851]
+peer 2 replicated up to 13
+sus[Node 1][Follower] InstallSnapshot called Term: 3 [01:23:27.951]
+[Node 1][Follower] installing snapshot up to idx 9 Term: 3 [01:23:27.951]
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:27.951]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:27.952]
+peer 2 replicated up to 13
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:28.051]
+[Node 1][Follower] Received Append Entries from peer 0 Term: 3 [01:23:28.051]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:28.051]
+[Node 0][Leader] conflict from 1 1 -1setting nextIndex from 10 Term: 3 [01:23:28.052]
+peer 2 replicated up to 13
+sus[Node 1][Follower] InstallSnapshot called Term: 3 [01:23:28.151]
+[Node 1][Follower] installing snapshot up to idx 9 Term: 3 [01:23:28.151]
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:28.151]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:28.152]
+peer 2 replicated up to 13
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:28.252]
+[Node 1][Follower] Received Append Entries from peer 0 Term: 3 [01:23:28.252]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:28.252]
+[Node 0][Leader] conflict from 1 1 -1setting nextIndex from 10 Term: 3 [01:23:28.253]
+peer 2 replicated up to 13
+sus[Node 1][Follower] InstallSnapshot called Term: 3 [01:23:28.352]
+[Node 1][Follower] installing snapshot up to idx 9 Term: 3 [01:23:28.352]
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:28.352]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:28.353]
+peer 2 replicated up to 13
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:28.453]
+[Node 1][Follower] Received Append Entries from peer 0 Term: 3 [01:23:28.453]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:28.453]
+[Node 0][Leader] conflict from 1 1 -1setting nextIndex from 10 Term: 3 [01:23:28.454]
+peer 2 replicated up to 13
+sus[Node 1][Follower] InstallSnapshot called Term: 3 [01:23:28.553]
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:28.553]
+[Node 1][Follower] installing snapshot up to idx 9 Term: 3 [01:23:28.553]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:28.554]
+peer 2 replicated up to 13
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:28.654]
+[Node 1][Follower] Received Append Entries from peer 0 Term: 3 [01:23:28.654]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:28.654]
+[Node 0][Leader] conflict from 1 1 -1setting nextIndex from 10 Term: 3 [01:23:28.655]
+peer 2 replicated up to 13
+sus[Node 1][Follower] InstallSnapshot called Term: 3 [01:23:28.754]
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:28.754]
+[Node 1][Follower] installing snapshot up to idx 9 Term: 3 [01:23:28.754]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:28.754]
+peer 2 replicated up to 13
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:28.855]
+[Node 1][Follower] Received Append Entries from peer 0 Term: 3 [01:23:28.855]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:28.855]
+[Node 0][Leader] conflict from 1 1 -1setting nextIndex from 10 Term: 3 [01:23:28.856]
+peer 2 replicated up to 13
+sus[Node 1][Follower] InstallSnapshot called Term: 3 [01:23:28.955]
+[Node 1][Follower] installing snapshot up to idx 9 Term: 3 [01:23:28.955]
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:28.955]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:28.955]
+peer 2 replicated up to 13
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:29.055]
+[Node 1][Follower] Received Append Entries from peer 0 Term: 3 [01:23:29.055]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:29.056]
+[Node 0][Leader] conflict from 1 1 -1setting nextIndex from 10 Term: 3 [01:23:29.056]
+peer 2 replicated up to 13
+sus[Node 1][Follower] InstallSnapshot called Term: 3 [01:23:29.156]
+[Node 1][Follower] installing snapshot up to idx 9 Term: 3 [01:23:29.156]
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:29.156]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:29.157]
+peer 2 replicated up to 13
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:29.257]
+[Node 1][Follower] Received Append Entries from peer 0 Term: 3 [01:23:29.257]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:29.257]
+[Node 0][Leader] conflict from 1 1 -1setting nextIndex from 10 Term: 3 [01:23:29.258]
+peer 2 replicated up to 13
+[Node 0][Leader] ===Start called4574977471206857454=== Term: 3 [01:23:29.267]
+at least have leader submit %.8s at index %v457497747120685745414sus[Node 1][Follower] InstallSnapshot called Term: 3 [01:23:29.358]
+[Node 1][Follower] installing snapshot up to idx 9 Term: 3 [01:23:29.358]
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:29.358]
+[Node 2][Follower] received appendEntry from peer 0[{3 4574977471206857454}] Term: 3 [01:23:29.358]
+peer 2 replicated up to 14
+[Node 0][Leader] commit index updated to 14 Term: 3 [01:23:29.360]
+[Node 0][Leader] applied changes{true 4574977471206857454 13 false [] 0 0} Term: 3 [01:23:29.360]
+[Node 0][Leader] applied changes{true 4574977471206857454 14 false [] 0 0} Term: 3 [01:23:29.360]
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:29.457]
+[Node 1][Follower] Received Append Entries from peer 0 Term: 3 [01:23:29.457]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:29.458]
+[Node 0][Leader] conflict from 1 1 -1setting nextIndex from 10 Term: 3 [01:23:29.458]
+[Node 2][Follower] applied changes{true 4574977471206857454 13 false [] 0 0} Term: 3 [01:23:29.458]
+[Node 2][Follower] applied changes{true 4574977471206857454 14 false [] 0 0} Term: 3 [01:23:29.458]
+peer 2 replicated up to 14
+sus[Node 1][Follower] InstallSnapshot called Term: 3 [01:23:29.558]
+[Node 1][Follower] installing snapshot up to idx 9 Term: 3 [01:23:29.558]
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:29.558]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:29.559]
+peer 2 replicated up to 14
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:29.659]
+[Node 1][Follower] Received Append Entries from peer 0 Term: 3 [01:23:29.659]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:29.659]
+[Node 0][Leader] conflict from 1 1 -1setting nextIndex from 10 Term: 3 [01:23:29.659]
+peer 2 replicated up to 14
+sus[Node 1][Follower] InstallSnapshot called Term: 3 [01:23:29.760]
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:29.760]
+[Node 1][Follower] installing snapshot up to idx 9 Term: 3 [01:23:29.760]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:29.760]
+peer 2 replicated up to 14
+[Node 0][Leader] no response from1 Term: 3 [01:23:29.766]
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:29.861]
+[Node 1][Follower] Received Append Entries from peer 0 Term: 3 [01:23:29.861]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:29.861]
+[Node 0][Leader] conflict from 1 1 -1setting nextIndex from 10 Term: 3 [01:23:29.862]
+peer 2 replicated up to 14
+sus[Node 1][Follower] InstallSnapshot called Term: 3 [01:23:29.962]
+[Node 1][Follower] installing snapshot up to idx 9 Term: 3 [01:23:29.962]
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:29.962]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:29.963]
+peer 2 replicated up to 14
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:30.062]
+[Node 1][Follower] Received Append Entries from peer 0 Term: 3 [01:23:30.062]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:30.063]
+[Node 0][Leader] conflict from 1 1 -1setting nextIndex from 10 Term: 3 [01:23:30.063]
+peer 2 replicated up to 14
+sus[Node 1][Follower] InstallSnapshot called Term: 3 [01:23:30.164]
+[Node 1][Follower] installing snapshot up to idx 9 Term: 3 [01:23:30.164]
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:30.164]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:30.165]
+peer 2 replicated up to 14
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:30.264]
+[Node 1][Follower] Received Append Entries from peer 0 Term: 3 [01:23:30.264]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:30.265]
+[Node 0][Leader] conflict from 1 1 -1setting nextIndex from 10 Term: 3 [01:23:30.265]
+peer 2 replicated up to 14
+sus[Node 1][Follower] InstallSnapshot called Term: 3 [01:23:30.365]
+[Node 1][Follower] installing snapshot up to idx 9 Term: 3 [01:23:30.365]
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:30.365]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:30.365]
+peer 2 replicated up to 14
+[Node 1][Follower] Received Append Entries from peer 0 Term: 3 [01:23:30.465]
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:30.466]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:30.466]
+[Node 0][Leader] conflict from 1 1 -1setting nextIndex from 10 Term: 3 [01:23:30.466]
+peer 2 replicated up to 14
+sus[Node 1][Follower] InstallSnapshot called Term: 3 [01:23:30.566]
+[Node 1][Follower] installing snapshot up to idx 9 Term: 3 [01:23:30.566]
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:30.566]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:30.567]
+peer 2 replicated up to 14
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:30.667]
+[Node 1][Follower] Received Append Entries from peer 0 Term: 3 [01:23:30.667]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:30.667]
+[Node 0][Leader] conflict from 1 1 -1setting nextIndex from 10 Term: 3 [01:23:30.668]
+peer 2 replicated up to 14
+sus[Node 1][Follower] InstallSnapshot called Term: 3 [01:23:30.767]
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:30.767]
+[Node 1][Follower] installing snapshot up to idx 9 Term: 3 [01:23:30.767]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:30.767]
+peer 2 replicated up to 14
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:30.866]
+[Node 1][Follower] Received Append Entries from peer 0 Term: 3 [01:23:30.866]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:30.866]
+[Node 0][Leader] conflict from 1 1 -1setting nextIndex from 10 Term: 3 [01:23:30.867]
+peer 2 replicated up to 14
+sus[Node 1][Follower] InstallSnapshot called Term: 3 [01:23:30.967]
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:30.967]
+[Node 1][Follower] installing snapshot up to idx 9 Term: 3 [01:23:30.967]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:30.967]
+peer 2 replicated up to 14
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:31.068]
+[Node 1][Follower] Received Append Entries from peer 0 Term: 3 [01:23:31.068]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:31.068]
+[Node 0][Leader] conflict from 1 1 -1setting nextIndex from 10 Term: 3 [01:23:31.068]
+peer 2 replicated up to 14
+sus[Node 1][Follower] InstallSnapshot called Term: 3 [01:23:31.169]
+[Node 1][Follower] installing snapshot up to idx 9 Term: 3 [01:23:31.169]
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:31.169]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:31.169]
+peer 2 replicated up to 14
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:31.269]
+[Node 1][Follower] Received Append Entries from peer 0 Term: 3 [01:23:31.269]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:31.270]
+[Node 0][Leader] conflict from 1 1 -1setting nextIndex from 10 Term: 3 [01:23:31.270]
+peer 2 replicated up to 14
+[Node 0][Leader] ===Start called4574977471206857454=== Term: 3 [01:23:31.286]
+at least have leader submit %.8s at index %v457497747120685745415sus[Node 1][Follower] InstallSnapshot called Term: 3 [01:23:31.370]
+[Node 1][Follower] installing snapshot up to idx 9 Term: 3 [01:23:31.370]
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:31.370]
+[Node 2][Follower] received appendEntry from peer 0[{3 4574977471206857454}] Term: 3 [01:23:31.371]
+peer 2 replicated up to 15
+[Node 0][Leader] commit index updated to 15 Term: 3 [01:23:31.372]
+[Node 0][Leader] applied changes{true 4574977471206857454 15 false [] 0 0} Term: 3 [01:23:31.372]
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:31.470]
+[Node 1][Follower] Received Append Entries from peer 0 Term: 3 [01:23:31.470]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:31.471]
+[Node 0][Leader] conflict from 1 1 -1setting nextIndex from 10 Term: 3 [01:23:31.471]
+[Node 2][Follower] applied changes{true 4574977471206857454 15 false [] 0 0} Term: 3 [01:23:31.471]
+peer 2 replicated up to 15
+sus[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:31.571]
+[Node 1][Follower] InstallSnapshot called Term: 3 [01:23:31.571]
+[Node 1][Follower] installing snapshot up to idx 9 Term: 3 [01:23:31.571]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:31.571]
+peer 2 replicated up to 15
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:31.672]
+[Node 1][Follower] Received Append Entries from peer 0 Term: 3 [01:23:31.672]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:31.672]
+[Node 0][Leader] conflict from 1 1 -1setting nextIndex from 10 Term: 3 [01:23:31.672]
+peer 2 replicated up to 15
+[Node 0][Leader] no response from1 Term: 3 [01:23:31.737]
+sus[Node 1][Follower] InstallSnapshot called Term: 3 [01:23:31.772]
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:31.772]
+[Node 1][Follower] installing snapshot up to idx 9 Term: 3 [01:23:31.772]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:31.773]
+peer 2 replicated up to 15
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:31.873]
+[Node 1][Follower] Received Append Entries from peer 0 Term: 3 [01:23:31.873]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:31.873]
+[Node 0][Leader] conflict from 1 1 -1setting nextIndex from 10 Term: 3 [01:23:31.874]
+peer 2 replicated up to 15
+sus[Node 1][Follower] InstallSnapshot called Term: 3 [01:23:31.972]
+[Node 1][Follower] installing snapshot up to idx 9 Term: 3 [01:23:31.972]
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:31.972]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:31.972]
+peer 2 replicated up to 15
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:32.073]
+[Node 1][Follower] Received Append Entries from peer 0 Term: 3 [01:23:32.073]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:32.073]
+[Node 0][Leader] conflict from 1 1 -1setting nextIndex from 10 Term: 3 [01:23:32.073]
+peer 2 replicated up to 15
+sus[Node 1][Follower] InstallSnapshot called Term: 3 [01:23:32.174]
+[Node 1][Follower] installing snapshot up to idx 9 Term: 3 [01:23:32.174]
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:32.174]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:32.174]
+peer 2 replicated up to 15
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:32.275]
+[Node 1][Follower] Received Append Entries from peer 0 Term: 3 [01:23:32.275]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:32.275]
+[Node 0][Leader] conflict from 1 1 -1setting nextIndex from 10 Term: 3 [01:23:32.275]
+peer 2 replicated up to 15
+sus[Node 1][Follower] InstallSnapshot called Term: 3 [01:23:32.375]
+[Node 1][Follower] installing snapshot up to idx 9 Term: 3 [01:23:32.375]
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:32.375]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:32.375]
+peer 2 replicated up to 15
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:32.476]
+[Node 1][Follower] Received Append Entries from peer 0 Term: 3 [01:23:32.476]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:32.476]
+[Node 0][Leader] conflict from 1 1 -1setting nextIndex from 10 Term: 3 [01:23:32.476]
+peer 2 replicated up to 15
+sus[Node 1][Follower] InstallSnapshot called Term: 3 [01:23:32.576]
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:32.576]
+[Node 1][Follower] installing snapshot up to idx 9 Term: 3 [01:23:32.576]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:32.576]
+peer 2 replicated up to 15
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:32.677]
+[Node 1][Follower] Received Append Entries from peer 0 Term: 3 [01:23:32.677]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:32.677]
+[Node 0][Leader] conflict from 1 1 -1setting nextIndex from 10 Term: 3 [01:23:32.677]
+peer 2 replicated up to 15
+sus[Node 1][Follower] InstallSnapshot called Term: 3 [01:23:32.777]
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:32.777]
+[Node 1][Follower] installing snapshot up to idx 9 Term: 3 [01:23:32.777]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:32.777]
+peer 2 replicated up to 15
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:32.877]
+[Node 1][Follower] Received Append Entries from peer 0 Term: 3 [01:23:32.877]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:32.877]
+[Node 0][Leader] conflict from 1 1 -1setting nextIndex from 10 Term: 3 [01:23:32.878]
+peer 2 replicated up to 15
+sus[Node 1][Follower] InstallSnapshot called Term: 3 [01:23:32.977]
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:32.977]
+[Node 1][Follower] installing snapshot up to idx 9 Term: 3 [01:23:32.977]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:32.977]
+peer 2 replicated up to 15
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:33.078]
+[Node 1][Follower] Received Append Entries from peer 0 Term: 3 [01:23:33.078]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:33.078]
+[Node 0][Leader] conflict from 1 1 -1setting nextIndex from 10 Term: 3 [01:23:33.078]
+peer 2 replicated up to 15
+sus[Node 1][Follower] InstallSnapshot called Term: 3 [01:23:33.178]
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:33.178]
+[Node 1][Follower] installing snapshot up to idx 9 Term: 3 [01:23:33.178]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:33.178]
+peer 2 replicated up to 15
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:33.279]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:33.280]
+[Node 1][Follower] Received Append Entries from peer 0 Term: 3 [01:23:33.280]
+[Node 0][Leader] conflict from 1 1 -1setting nextIndex from 10 Term: 3 [01:23:33.280]
+peer 2 replicated up to 15
+[Node 0][Leader] ===Start called4574977471206857454=== Term: 3 [01:23:33.300]
+at least have leader submit %.8s at index %v457497747120685745416sus[Node 1][Follower] InstallSnapshot called Term: 3 [01:23:33.379]
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:33.379]
+[Node 1][Follower] installing snapshot up to idx 9 Term: 3 [01:23:33.379]
+[Node 2][Follower] received appendEntry from peer 0[{3 4574977471206857454}] Term: 3 [01:23:33.379]
+peer 2 replicated up to 16
+[Node 0][Leader] commit index updated to 16 Term: 3 [01:23:33.380]
+[Node 0][Leader] applied changes{true 4574977471206857454 16 false [] 0 0} Term: 3 [01:23:33.380]
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:33.480]
+[Node 1][Follower] Received Append Entries from peer 0 Term: 3 [01:23:33.480]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:33.480]
+[Node 2][Follower] applied changes{true 4574977471206857454 16 false [] 0 0} Term: 3 [01:23:33.480]
+[Node 0][Leader] conflict from 1 1 -1setting nextIndex from 10 Term: 3 [01:23:33.480]
+peer 2 replicated up to 16
+sus[Node 1][Follower] InstallSnapshot called Term: 3 [01:23:33.581]
+[Node 1][Follower] installing snapshot up to idx 9 Term: 3 [01:23:33.581]
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:33.581]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:33.581]
+peer 2 replicated up to 16
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:33.681]
+[Node 1][Follower] Received Append Entries from peer 0 Term: 3 [01:23:33.681]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:33.681]
+[Node 0][Leader] conflict from 1 1 -1setting nextIndex from 10 Term: 3 [01:23:33.682]
+peer 2 replicated up to 16
+sus[Node 1][Follower] InstallSnapshot called Term: 3 [01:23:33.782]
+[Node 1][Follower] installing snapshot up to idx 9 Term: 3 [01:23:33.782]
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:33.782]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:33.783]
+peer 2 replicated up to 16
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:33.883]
+[Node 1][Follower] Received Append Entries from peer 0 Term: 3 [01:23:33.883]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:33.883]
+[Node 0][Leader] conflict from 1 1 -1setting nextIndex from 10 Term: 3 [01:23:33.884]
+peer 2 replicated up to 16
+sus[Node 1][Follower] InstallSnapshot called Term: 3 [01:23:33.984]
+[Node 1][Follower] installing snapshot up to idx 9 Term: 3 [01:23:33.984]
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:33.984]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:33.984]
+peer 2 replicated up to 16
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:34.085]
+[Node 1][Follower] Received Append Entries from peer 0 Term: 3 [01:23:34.085]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:34.085]
+[Node 0][Leader] conflict from 1 1 -1setting nextIndex from 10 Term: 3 [01:23:34.085]
+peer 2 replicated up to 16
+sus[Node 1][Follower] InstallSnapshot called Term: 3 [01:23:34.185]
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:34.185]
+[Node 1][Follower] installing snapshot up to idx 9 Term: 3 [01:23:34.185]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:34.186]
+peer 2 replicated up to 16
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:34.286]
+[Node 1][Follower] Received Append Entries from peer 0 Term: 3 [01:23:34.286]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:34.286]
+[Node 0][Leader] conflict from 1 1 -1setting nextIndex from 10 Term: 3 [01:23:34.286]
+peer 2 replicated up to 16
+sus[Node 1][Follower] InstallSnapshot called Term: 3 [01:23:34.386]
+[Node 1][Follower] installing snapshot up to idx 9 Term: 3 [01:23:34.386]
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:34.386]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:34.387]
+peer 2 replicated up to 16
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:34.486]
+[Node 1][Follower] Received Append Entries from peer 0 Term: 3 [01:23:34.486]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:34.487]
+[Node 0][Leader] conflict from 1 1 -1setting nextIndex from 10 Term: 3 [01:23:34.487]
+peer 2 replicated up to 16
+sus[Node 1][Follower] InstallSnapshot called Term: 3 [01:23:34.587]
+[Node 1][Follower] installing snapshot up to idx 9 Term: 3 [01:23:34.587]
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:34.587]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:34.588]
+peer 2 replicated up to 16
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:34.687]
+[Node 1][Follower] Received Append Entries from peer 0 Term: 3 [01:23:34.687]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:34.688]
+[Node 0][Leader] conflict from 1 1 -1setting nextIndex from 10 Term: 3 [01:23:34.688]
+peer 2 replicated up to 16
+sus[Node 1][Follower] InstallSnapshot called Term: 3 [01:23:34.788]
+[Node 1][Follower] installing snapshot up to idx 9 Term: 3 [01:23:34.788]
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:34.788]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:34.788]
+peer 2 replicated up to 16
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:34.889]
+[Node 1][Follower] Received Append Entries from peer 0 Term: 3 [01:23:34.889]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:34.889]
+[Node 0][Leader] conflict from 1 1 -1setting nextIndex from 10 Term: 3 [01:23:34.890]
+peer 2 replicated up to 16
+sus[Node 1][Follower] InstallSnapshot called Term: 3 [01:23:34.989]
+[Node 1][Follower] installing snapshot up to idx 9 Term: 3 [01:23:34.989]
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:34.989]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:34.990]
+peer 2 replicated up to 16
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:35.089]
+[Node 1][Follower] Received Append Entries from peer 0 Term: 3 [01:23:35.089]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:35.090]
+[Node 0][Leader] conflict from 1 1 -1setting nextIndex from 10 Term: 3 [01:23:35.090]
+peer 2 replicated up to 16
+sus[Node 1][Follower] InstallSnapshot called Term: 3 [01:23:35.191]
+[Node 1][Follower] installing snapshot up to idx 9 Term: 3 [01:23:35.191]
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:35.191]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:35.191]
+peer 2 replicated up to 16
+[Node 1][Follower] Received Append Entries from peer 0 Term: 3 [01:23:35.291]
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:35.291]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:35.292]
+[Node 0][Leader] conflict from 1 1 -1setting nextIndex from 10 Term: 3 [01:23:35.292]
+peer 2 replicated up to 16
+[Node 0][Leader] ===Start called4574977471206857454=== Term: 3 [01:23:35.315]
+at least have leader submit %.8s at index %v457497747120685745417sus[Node 1][Follower] InstallSnapshot called Term: 3 [01:23:35.392]
+[Node 1][Follower] installing snapshot up to idx 9 Term: 3 [01:23:35.392]
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:35.392]
+[Node 2][Follower] received appendEntry from peer 0[{3 4574977471206857454}] Term: 3 [01:23:35.392]
+peer 2 replicated up to 17
+[Node 0][Leader] commit index updated to 17 Term: 3 [01:23:35.394]
+[Node 0][Leader] applied changes{true 4574977471206857454 17 false [] 0 0} Term: 3 [01:23:35.394]
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:35.492]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:35.493]
+[Node 1][Follower] Received Append Entries from peer 0 Term: 3 [01:23:35.493]
+[Node 2][Follower] applied changes{true 4574977471206857454 17 false [] 0 0} Term: 3 [01:23:35.494]
+[Node 0][Leader] conflict from 1 1 -1setting nextIndex from 10 Term: 3 [01:23:35.494]
+peer 2 replicated up to 17
+sus[Node 1][Follower] InstallSnapshot called Term: 3 [01:23:35.593]
+[Node 1][Follower] installing snapshot up to idx 9 Term: 3 [01:23:35.593]
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:35.593]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:35.593]
+peer 2 replicated up to 17
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:35.693]
+[Node 1][Follower] Received Append Entries from peer 0 Term: 3 [01:23:35.693]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:35.694]
+[Node 0][Leader] conflict from 1 1 -1setting nextIndex from 10 Term: 3 [01:23:35.694]
+peer 2 replicated up to 17
+sus[Node 1][Follower] InstallSnapshot called Term: 3 [01:23:35.793]
+[Node 1][Follower] installing snapshot up to idx 9 Term: 3 [01:23:35.793]
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:35.793]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:35.794]
+peer 2 replicated up to 17
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:35.894]
+[Node 1][Follower] Received Append Entries from peer 0 Term: 3 [01:23:35.894]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:35.894]
+[Node 0][Leader] conflict from 1 1 -1setting nextIndex from 10 Term: 3 [01:23:35.895]
+peer 2 replicated up to 17
+sus[Node 1][Follower] InstallSnapshot called Term: 3 [01:23:35.994]
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:35.994]
+[Node 1][Follower] installing snapshot up to idx 9 Term: 3 [01:23:35.994]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:35.995]
+peer 2 replicated up to 17
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:36.095]
+[Node 1][Follower] Received Append Entries from peer 0 Term: 3 [01:23:36.095]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:36.095]
+[Node 0][Leader] conflict from 1 1 -1setting nextIndex from 10 Term: 3 [01:23:36.096]
+peer 2 replicated up to 17
+sus[Node 1][Follower] InstallSnapshot called Term: 3 [01:23:36.195]
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:36.195]
+[Node 1][Follower] installing snapshot up to idx 9 Term: 3 [01:23:36.195]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:36.195]
+peer 2 replicated up to 17
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:36.296]
+[Node 1][Follower] Received Append Entries from peer 0 Term: 3 [01:23:36.296]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:36.296]
+[Node 0][Leader] conflict from 1 1 -1setting nextIndex from 10 Term: 3 [01:23:36.297]
+peer 2 replicated up to 17
+sus[Node 1][Follower] InstallSnapshot called Term: 3 [01:23:36.397]
+[Node 1][Follower] installing snapshot up to idx 9 Term: 3 [01:23:36.397]
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:36.397]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:36.397]
+peer 2 replicated up to 17
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:36.497]
+[Node 1][Follower] Received Append Entries from peer 0 Term: 3 [01:23:36.497]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:36.497]
+[Node 0][Leader] conflict from 1 1 -1setting nextIndex from 10 Term: 3 [01:23:36.497]
+peer 2 replicated up to 17
+sus[Node 1][Follower] InstallSnapshot called Term: 3 [01:23:36.597]
+[Node 1][Follower] installing snapshot up to idx 9 Term: 3 [01:23:36.598]
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:36.598]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:36.598]
+peer 2 replicated up to 17
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:36.698]
+[Node 1][Follower] Received Append Entries from peer 0 Term: 3 [01:23:36.698]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:36.698]
+[Node 0][Leader] conflict from 1 1 -1setting nextIndex from 10 Term: 3 [01:23:36.699]
+peer 2 replicated up to 17
+sus[Node 1][Follower] InstallSnapshot called Term: 3 [01:23:36.798]
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:36.799]
+[Node 1][Follower] installing snapshot up to idx 9 Term: 3 [01:23:36.799]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:36.799]
+peer 2 replicated up to 17
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:36.899]
+[Node 1][Follower] Received Append Entries from peer 0 Term: 3 [01:23:36.899]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:36.900]
+[Node 0][Leader] conflict from 1 1 -1setting nextIndex from 10 Term: 3 [01:23:36.900]
+peer 2 replicated up to 17
+sus[Node 1][Follower] InstallSnapshot called Term: 3 [01:23:36.999]
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:36.999]
+[Node 1][Follower] installing snapshot up to idx 9 Term: 3 [01:23:36.999]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:36.999]
+peer 2 replicated up to 17
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:37.100]
+[Node 1][Follower] Received Append Entries from peer 0 Term: 3 [01:23:37.101]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:37.101]
+[Node 0][Leader] conflict from 1 1 -1setting nextIndex from 10 Term: 3 [01:23:37.101]
+peer 2 replicated up to 17
+sus[Node 1][Follower] InstallSnapshot called Term: 3 [01:23:37.201]
+[Node 1][Follower] installing snapshot up to idx 9 Term: 3 [01:23:37.201]
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:37.201]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:37.202]
+peer 2 replicated up to 17
+[Node 2][Follower] Received Append Entries from peer 0 Term: 3 [01:23:37.301]
+[Node 1][Follower] Received Append Entries from peer 0 Term: 3 [01:23:37.301]
+[Node 2][Follower] received appendEntry from peer 0[] Term: 3 [01:23:37.302]
+[Node 0][Leader] conflict from 1 1 -1setting nextIndex from 10 Term: 3 [01:23:37.302]
+peer 2 replicated up to 17
+Fatal: one(4574977471206857454) failed to reach agreement
+        /Users/chankeith/Desktop/coursework/Fa25/raft_mini/6.5840-golabs-2025/src/raft1/test.go:284
+        /Users/chankeith/Desktop/coursework/Fa25/raft_mini/6.5840-golabs-2025/src/raft1/raft_test.go:1299
+        /Users/chankeith/Desktop/coursework/Fa25/raft_mini/6.5840-golabs-2025/src/raft1/raft_test.go:1317
+dump Node 0 State: Leader Term: 3 VotedFor: -1 CommitIdx: 17 LastApplied: 17 LastIncludedIdx : 9 Log: [{Term:1 Content:7832271792211252424} {Term:1 Content:3085809946835744769} {Term:1 Content:8064761925055776703} {Term:1 Content:4574977471206857454} {Term:3 Content:4574977471206857454} {Term:3 Content:4574977471206857454} {Term:3 Content:4574977471206857454} {Term:3 Content:4574977471206857454}]
+map[1:5377310038833364204 2:5925944265122202637 3:4105130563573050678 4:6285916395434278075 5:4586968157932106312 6:8613400834276272502 7:3878816341485912765 8:8373391509355189799 9:4495898017115903900 10:7832271792211252424 11:3085809946835744769 12:8064761925055776703 13:4574977471206857454 14:4574977471206857454 15:4574977471206857454 16:4574977471206857454 17:4574977471206857454]
+dump Node 1 State: Follower Term: 3 VotedFor: 0 CommitIdx: 1 LastApplied: 1 LastIncludedIdx : 0 Log: []
+map[1:5377310038833364204]
+dump Node 2 State: Follower Term: 3 VotedFor: 0 CommitIdx: 17 LastApplied: 17 LastIncludedIdx : 9 Log: [{Term:1 Content:7832271792211252424} {Term:1 Content:3085809946835744769} {Term:1 Content:8064761925055776703} {Term:1 Content:4574977471206857454} {Term:3 Content:4574977471206857454} {Term:3 Content:4574977471206857454} {Term:3 Content:4574977471206857454} {Term:3 Content:4574977471206857454}]
+map[1:5377310038833364204 2:5925944265122202637 3:4105130563573050678 4:6285916395434278075 5:4586968157932106312 6:8613400834276272502 7:3878816341485912765 8:8373391509355189799 9:4495898017115903900 10:7832271792211252424 11:3085809946835744769 12:8064761925055776703 13:4574977471206857454 14:4574977471206857454 15:4574977471206857454 16:4574977471206857454 17:4574977471206857454]
+info: wrote visualization to /var/folders/s3/g714w5vj18v77kpvg21k7pq80000gn/T/porcupine-3988734878.html
+--- FAIL: TestSnapshotInstall3D (11.49s)
+    raft_test.go:1409: --- Dumping Raft states ---
+FAIL
+exit status 1
+FAIL	6.5840/raft1	11.674s
