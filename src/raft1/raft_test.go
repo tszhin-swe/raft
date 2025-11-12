@@ -72,7 +72,6 @@ func TestReElection3A(t *testing.T) {
 	// if the old leader rejoins, that shouldn't
 	// disturb the new leader. and the old leader
 	// should switch to follower.
-	print("REJOIN OLD LEADER")
 	ts.g.ConnectOne(leader1)
 	tester.AnnotateConnection(ts.g.GetConnected())
 	leader2 := ts.checkOneLeader()
@@ -80,7 +79,6 @@ func TestReElection3A(t *testing.T) {
 
 	// if there's no quorum, no new leader should
 	// be elected.
-	print("DISCONNECT EVERYONE")
 	ts.g.DisconnectAll(leader2)
 	ts.g.DisconnectAll((leader2 + 1) % servers)
 	tester.AnnotateConnection(ts.g.GetConnected())
@@ -91,14 +89,12 @@ func TestReElection3A(t *testing.T) {
 	ts.checkNoLeader()
 
 	// if a quorum arises, it should elect a leader.
-	print("CONNECT BACK")
 	ts.g.ConnectOne((leader2 + 1) % servers)
 	tester.AnnotateConnection(ts.g.GetConnected())
 	
 	ts.checkOneLeader()
 
 	// re-join of last node shouldn't prevent leader from existing.
-	print("REJOIN ANOTHER")
 	ts.g.ConnectOne(leader2)
 	tester.AnnotateConnection(ts.g.GetConnected())
 	ts.checkOneLeader()
@@ -352,7 +348,6 @@ func TestFailNoAgree3B(t *testing.T) {
 	ts.g.ConnectOne((leader + 2) % servers)
 	ts.g.ConnectOne((leader + 3) % servers)
 	tester.AnnotateConnection(ts.g.GetConnected())
-	print("REPAIRED NETWORK")
 
 	// the disconnected majority may have chosen a leader from
 	// among their own ranks, forgetting index 2.
@@ -1406,6 +1401,7 @@ func TestSnapshotInit3D(t *testing.T) {
 // It's intended to be called with defer in tests to help debugging,
 // e.g. `defer printRaftStates(ts)`.
 func printRaftStates(ts *Test) {
+	return
 	ts.t.Logf("--- Dumping Raft states ---")
 	for i := 0; i < len(ts.srvs); i++ {
 		rf := ts.srvs[i].Raft()

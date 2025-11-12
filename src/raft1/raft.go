@@ -34,12 +34,14 @@ type Log struct {
 }
 
 func dbgprint(rf *Raft, str string) {
+	return
 	stateStr := map[State]string{Follower: "Follower", Candidate: "Candidate", Leader: "Leader"}[rf.state]
 	timeStr := time.Now().Format("15:04:05.000")
-	fmt.Printf("[Node %d][%s] %s Term: %d  [%s]\n", rf.me, stateStr, str, rf.currentTerm, timeStr)
+	fmt.Printf("[Node %d][%s] %s  | Term: %d, CommitIdx: %d, LastApplied: %d, LastIncludedIdx: %d, LastIncludedTerm: %d, LogLen: %d [%s] \n", rf.me, stateStr,str, rf.currentTerm, rf.commitIndex, rf.lastApplied, rf.lastIncludedIdx, rf.lastIncludedTerm, len(rf.log), timeStr)
 }
 
 func dbgprintstruct(rf *Raft, str string) {
+	return
 	id := rf.me
 	stateStr := map[State]string{Follower: "Follower", Candidate: "Candidate", Leader: "Leader"}[rf.state]
 	// log := rf.log
@@ -263,7 +265,10 @@ type AppendEntriesArgReply struct {
 func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesArgReply) {
 	rf.mu.Lock()
 	defer rf.mu.Unlock()
-	dbgprint(rf, "Received Append Entries from peer "+fmt.Sprint(args.LeaderId))
+	defer func() {
+		dbgprint(rf, fmt.Sprintf("Reply to AppendEntries to %d: %+v", args.LeaderId, reply))
+	}()
+	dbgprint(rf, fmt.Sprintf("Received AppendEntries from %d: Term %d, LeaderCommitIdx %d, PrevLogIdx %d, PrevLogTerm %d, %d entries", args.LeaderId, args.Term, args.LeaderCommitIdx, args.PrevLogIdx, args.PrevLogTerm, len(args.Entries)))
 	reply.Success = false
 	reply.Term = rf.currentTerm
 	if args.Term < rf.currentTerm {
@@ -301,8 +306,6 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesArgRe
 		}
 		return
 	}
-
-	dbgprint(rf, "received appendEntry from peer "+fmt.Sprint(args.LeaderId) + fmt.Sprint(args.Entries))
 
 	rf.log = rf.log[:rf.GetLogIdxFromAbsoluteIdx(args.PrevLogIdx+1)]
 	rf.log = append(rf.log, args.Entries...)
@@ -382,7 +385,10 @@ type InstallSnapshotReply struct {
 func (rf *Raft) InstallSnapshot(args *InstallSnapshotArgs, reply *InstallSnapshotReply) {
 	rf.mu.Lock()
 	defer rf.mu.Unlock()
-	dbgprint(rf, "InstallSnapshot called")
+	defer func() {
+		dbgprint(rf, fmt.Sprintf("Reply to InstallSnapshot from %d: %+v", args.LeaderId, reply))
+	}()
+	dbgprint(rf, fmt.Sprintf("Received InstallSnapshot from %d: Term %d, LastIncludedIdx %d, LastIncludedTerm %d", args.LeaderId, args.Term, args.LastIncludedIdx, args.LastIncludedTerm))
 	if args.Term < rf.currentTerm {
 		reply.Term = rf.currentTerm
 		return
@@ -400,13 +406,24 @@ func (rf *Raft) InstallSnapshot(args *InstallSnapshotArgs, reply *InstallSnapsho
 	dbgprint(rf, "installing snapshot up to idx "+fmt.Sprint(args.LastIncludedIdx))
 	snapshot := args.Data
 	rf.snapshot = snapshot
+	// apply snapshot to state machine
+	defer rf.ApplyChSnapshot(args.LastIncludedIdx, snapshot)
+
 	if rf.GetLogIdxFromAbsoluteIdx(args.LastIncludedIdx) < len(rf.log) && rf.GetTermAtIdx(args.LastIncludedIdx) == args.LastIncludedTerm {
 		rf.log = rf.log[rf.GetLogIdxFromAbsoluteIdx(args.LastIncludedIdx+1):]
 		rf.lastIncludedIdx = args.LastIncludedIdx
+		rf.lastIncludedTerm = args.LastIncludedTerm
+		rf.lastApplied = max(rf.lastApplied, args.LastIncludedIdx)
+		rf.commitIndex = max(rf.commitIndex, rf.lastApplied)
 		rf.persist()
 		return
 	}
 	rf.log = []Log{}
+	rf.lastIncludedIdx = args.LastIncludedIdx
+	rf.lastIncludedTerm = args.LastIncludedTerm
+	rf.lastApplied = max(rf.lastApplied, args.LastIncludedIdx)
+	rf.commitIndex = max(rf.commitIndex, rf.lastApplied)
+
 	rf.persist()
 }
 
@@ -452,6 +469,20 @@ func (rf *Raft) sendInstallSnapshot(server int, args *InstallSnapshotArgs, reply
 	return ok
 }
 
+func (rf *Raft) ApplyChSnapshot(lastIncludedIdx int, snapshot []byte) {
+	msg := raftapi.ApplyMsg{
+		CommandValid: false,
+		SnapshotValid: true,
+		Snapshot:     snapshot,
+		SnapshotTerm: rf.lastIncludedTerm,
+		SnapshotIndex: lastIncludedIdx,
+	}
+	rf.mu.Unlock()
+	rf.applyCh <- msg
+	rf.mu.Lock()
+	dbgprint(rf, "applied snapshot" + fmt.Sprint(msg))
+}
+
 func (rf *Raft) ApplyChanges() {
 	commitIdx := rf.commitIndex
 	for i := rf.lastApplied + 1; i <= commitIdx; i++ {
@@ -474,7 +505,6 @@ func (rf *Raft) CheckCommit() {
 	// Sort the copy
 	sort.Ints(copyArr)
 	if rf.GetLogIdxFromAbsoluteIdx(copyArr[len(rf.peers)/2]) >= len(rf.log) {
-		print("sus3")
 		return
 	}
 	if copyArr[len(rf.peers)/2] > rf.commitIndex && rf.GetTermAtIdx(copyArr[len(rf.peers)/2]) == rf.currentTerm {
@@ -487,6 +517,9 @@ func (rf *Raft) CheckCommit() {
 
 // when we call this, guarantee to succeed except if term outdated.
 func (rf *Raft) SendSnapshot(peer int, args *InstallSnapshotArgs) {
+	rf.mu.Lock()
+	dbgprint(rf, fmt.Sprintf("Sending snapshot to %d, args: Term %d, LastIncludedIdx %d, LastIncludedTerm %d", peer, args.Term, args.LastIncludedIdx, args.LastIncludedTerm))
+	rf.mu.Unlock()
 	// args := InstallSnapshotArgs{
 	// 	Term:             rf.currentTerm,
 	// 	LeaderId:         rf.me,
@@ -500,8 +533,10 @@ func (rf *Raft) SendSnapshot(peer int, args *InstallSnapshotArgs) {
 	rf.mu.Lock()
 	defer rf.mu.Unlock()
 	if !ok {
+		dbgprint(rf, fmt.Sprintf("No snapshot response from %d", peer))
 		return
 	}
+	dbgprint(rf, fmt.Sprintf("Received snapshot reply from %d: %+v", peer, &reply))
 
 	if reply.Term > rf.currentTerm {
 		rf.UpdateTerm(reply.Term)
@@ -518,6 +553,7 @@ func (rf *Raft) ReplicateEachPeer(peer int, nextIndex int, matchIndex int, args 
 		rf.mu.Unlock()
 		return false
 	}
+	dbgprint(rf, fmt.Sprintf("Sending AppendEntries to %d: Term %d, LeaderCommitIdx %d, PrevLogIdx %d, PrevLogTerm %d, %d entries", peer, args.Term, args.LeaderCommitIdx, args.PrevLogIdx, args.PrevLogTerm, len(args.Entries)))
 
 	old_term := rf.currentTerm
 	i := nextIndex
@@ -528,12 +564,15 @@ func (rf *Raft) ReplicateEachPeer(peer int, nextIndex int, matchIndex int, args 
 	ok := rf.sendAppendEntries(peer, args, &reply)
 
 	if !ok {
-		dbgprint(rf, "no response from" + fmt.Sprint(peer))
+		rf.mu.Lock()
+		dbgprint(rf, "no response from"+fmt.Sprint(peer))
+		rf.mu.Unlock()
 		return false
 	}
 
 	rf.mu.Lock()
 	defer rf.mu.Unlock()
+	dbgprint(rf, fmt.Sprintf("Received AppendEntries reply from %d: %+v", peer, &reply))
 
 	if old_term < rf.currentTerm {
 		return true
@@ -546,7 +585,7 @@ func (rf *Raft) ReplicateEachPeer(peer int, nextIndex int, matchIndex int, args 
 	if reply.Success {
 		rf.matchIndex[peer] = args.PrevLogIdx + len(args.Entries)
 		rf.nextIndex[peer] = rf.matchIndex[peer] + 1
-		fmt.Printf("peer %d replicated up to %d\n", peer, rf.matchIndex[peer])
+		dbgprint(rf, fmt.Sprintf("peer %d replicated up to %d\n", peer, rf.matchIndex[peer]))
 		rf.CheckCommit()
 		return true
 	} else {
@@ -725,7 +764,6 @@ func (rf *Raft) sendHeartBeatIfLeader() {
 					}
 					go rf.ReplicateEachPeer(peer, rf.nextIndex[peer], rf.matchIndex[peer], args)
 				} else {
-					print("sus")
 					args := &InstallSnapshotArgs{
 						Term:             rf.currentTerm,
 						LeaderId:         rf.me,
@@ -777,9 +815,15 @@ func Make(peers []*labrpc.ClientEnd, me int,
 	// initialize from state persisted before a crash
 	rf.readPersist(persister.ReadRaftState())
 
+	// Your initialization code here (3A, 3B, 3C).
+	rf.lastApplied = rf.lastIncludedIdx
+	rf.state = Follower
+	rf.commitIndex = rf.lastIncludedIdx
+
 	// start ticker goroutine to start elections
 	go rf.checkElectionTimeout()
 	go rf.sendHeartBeatIfLeader()
 
+	dbgprint(rf, "Raft node created/ restarted")
 	return rf
 }

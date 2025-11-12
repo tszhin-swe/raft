@@ -252,7 +252,6 @@ func (ts *Test) one(cmd any, expectedServers int, retry bool) int {
 		}
 
 		if index != -1 {
-			print("at least have leader submit %.8s at index %v", textcmd, index)
 			// somebody claimed to be the leader and to have
 			// submitted our command; wait a while for agreement.
 			t1 := time.Now()
