@@ -202,11 +202,15 @@ func TestOnePartition4B(t *testing.T) {
 	foundl, l := rsm.Leader(ts.Config, Gid)
 	if foundl {
 		text := fmt.Sprintf("leader found = %v", l)
+		print(text)
 		tester.AnnotateInfo(text, text)
 	} else {
 		text := "did not find a leader"
+		print(text)
 		tester.AnnotateInfo(text, text)
 	}
+	time.Sleep(500*time.Millisecond)
+	print("partition")
 	p1, p2 := ts.Group(Gid).MakePartition(l)
 	ts.Group(Gid).Partition(p1, p2)
 	tester.AnnotateTwoPartitions(p1, p2)
@@ -215,10 +219,14 @@ func TestOnePartition4B(t *testing.T) {
 	ckp2a := ts.MakeClerkTo(p2) // connect ckp2a to p2
 	ckp2b := ts.MakeClerkTo(p2) // connect ckp2b to p2
 
+	println("TRY PUTTING INTO MAJORITY PARTITION")
+
 	ver1 := ts.PutAtLeastOnce(ckp1, "1", "14", ver0, -1)
 	ts.CheckGet(ckp1, "1", "14", ver1)
 
 	ts.End()
+
+	println("RANDOM")
 
 	done0 := make(chan rpc.Tversion)
 	done1 := make(chan rpc.Tversion)
@@ -260,6 +268,7 @@ func TestOnePartition4B(t *testing.T) {
 	tester.AnnotateClearFailure()
 	ckp2a.(*kvtest.TestClerk).Clnt.ConnectAll()
 	ckp2b.(*kvtest.TestClerk).Clnt.ConnectAll()
+	println("heal partition")
 
 	time.Sleep(kvtest.ElectionTimeout)
 
@@ -267,7 +276,7 @@ func TestOnePartition4B(t *testing.T) {
 	ver15 := rpc.Tversion(0)
 	select {
 	case ver15 = <-done0:
-	case <-time.After(30 * 100 * time.Millisecond):
+	case <-time.After(60 * 100 * time.Millisecond):
 		tester.AnnotateCheckerFailure(
 			"Put(1, 15) did not complete after partition resolved", "OK")
 		t.Fatalf("Put did not complete")

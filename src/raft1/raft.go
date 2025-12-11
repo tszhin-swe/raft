@@ -34,14 +34,12 @@ type Log struct {
 }
 
 func dbgprint(rf *Raft, str string) {
-	return
 	stateStr := map[State]string{Follower: "Follower", Candidate: "Candidate", Leader: "Leader"}[rf.state]
 	timeStr := time.Now().Format("15:04:05.000")
 	fmt.Printf("[Node %d][%s] %s  | Term: %d, CommitIdx: %d, LastApplied: %d, LastIncludedIdx: %d, LastIncludedTerm: %d, LogLen: %d [%s] \n", rf.me, stateStr,str, rf.currentTerm, rf.commitIndex, rf.lastApplied, rf.lastIncludedIdx, rf.lastIncludedTerm, len(rf.log), timeStr)
 }
 
 func dbgprintstruct(rf *Raft, str string) {
-	return
 	id := rf.me
 	stateStr := map[State]string{Follower: "Follower", Candidate: "Candidate", Leader: "Leader"}[rf.state]
 	// log := rf.log
@@ -93,6 +91,9 @@ type Raft struct {
 	// last_recv
 	timestamp time.Time
 	timeout   time.Duration
+
+	lastSentTime []time.Time
+	heartBeat time.Duration
 }
 
 func (rf *Raft) GetLastLogIndexAndTerm() (int, int) {
@@ -103,6 +104,9 @@ func (rf *Raft) GetLastLogIndexAndTerm() (int, int) {
 }
 
 func (rf *Raft) GetLogAtIdx(idx int) Log {
+	if (idx - rf.lastIncludedIdx-1) >= len(rf.log) {
+		dbgprint(rf,"DBGPRINT PANIC")
+	}
 	return rf.log[(idx - rf.lastIncludedIdx - 1)]
 }
 
@@ -306,14 +310,41 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesArgRe
 		}
 		return
 	}
+	
+	old_log := make([]Log, len(rf.log))
+	copy(old_log, rf.log)
 
+	last_log_idx,_ = rf.GetLastLogIndexAndTerm()
+	incoming_last_log_idx := args.PrevLogIdx + len(args.Entries)
 	rf.log = rf.log[:rf.GetLogIdxFromAbsoluteIdx(args.PrevLogIdx+1)]
-	rf.log = append(rf.log, args.Entries...)
+	if incoming_last_log_idx >= last_log_idx {
+		rf.log = append(rf.log, args.Entries...)
+	} else{
+		rf.log = old_log
+		// our log is longer than incoming
+		truncate := false
+		for idx, incoming_log := range args.Entries {
+			incoming_idx := args.PrevLogIdx + idx + 1
+			if rf.GetTermAtIdx(incoming_idx) != incoming_log.Term {
+				truncate = true
+				break
+			}
+		}
+		rf.log = rf.log[:rf.GetLogIdxFromAbsoluteIdx(args.PrevLogIdx+1)]
+		if truncate {
+		rf.log = append(rf.log, args.Entries...)
+		} else {
+			rf.log = old_log
+		}
+	}
+
 	rf.persist()
 	if args.LeaderCommitIdx > rf.commitIndex {
 		last_idx, _ := rf.GetLastLogIndexAndTerm()
 		rf.commitIndex = min(last_idx, args.LeaderCommitIdx)
-		rf.ApplyChanges()
+		// start := rf.lastApplied + 1
+		// rf.lastApplied = rf.commitIndex
+		// rf.ApplyChanges(start)
 	}
 	reply.Success = true
 }
@@ -484,19 +515,35 @@ func (rf *Raft) ApplyChSnapshot(lastIncludedIdx int, snapshot []byte) {
 }
 
 func (rf *Raft) ApplyChanges() {
-	commitIdx := rf.commitIndex
-	for i := rf.lastApplied + 1; i <= commitIdx; i++ {
+	defer func() {
+		if r := recover(); r != nil {
+			dbgprint(rf, "PANIC RECOVER")
+			rf.mu.Lock()
+			return // exit ApplyChanges immediately on closed channel
+		}
+	}()
+
+	// avoid race condition
+
+	// commitIdx := rf.commitIndex
+	// copy_logs := make([]Log, len(rf.log))
+	// copy(copy_logs, rf.log)
+	// old_last_included_idx := rf.lastIncludedIdx
+	for i := max(1,rf.lastApplied+1); i <= rf.commitIndex; i++ {
 		msg := raftapi.ApplyMsg{
 			CommandValid: true,
 			Command:      rf.GetLogAtIdx(i).Content,
 			CommandIndex: i,
 		}
+		rf.lastApplied ++
+		dbgprint(rf, "try applying changes"+fmt.Sprint(msg))
+
+		// todo : see if need lock
 		rf.mu.Unlock()
 		rf.applyCh <- msg
 		rf.mu.Lock()
 		dbgprint(rf, "applied changes"+fmt.Sprint(msg))
 	}
-	rf.lastApplied = commitIdx
 }
 
 func (rf *Raft) CheckCommit() {
@@ -511,7 +558,9 @@ func (rf *Raft) CheckCommit() {
 		dbgprint(rf, "commit index updated to "+fmt.Sprint(copyArr[len(rf.peers)/2]))
 		new_commit_idx := max(rf.commitIndex, copyArr[len(rf.peers)/2])
 		rf.commitIndex = new_commit_idx
-		rf.ApplyChanges()
+		// start := rf.lastApplied + 1
+		// rf.lastApplied = rf.commitIndex
+		// rf.ApplyChanges(start)
 	}
 }
 
@@ -606,6 +655,10 @@ func (rf *Raft) ReplicateEachPeer(peer int, nextIndex int, matchIndex int, args 
 			i = reply.ConflictIdx
 		}
 	}
+	last_idx, _ := rf.GetLastLogIndexAndTerm()
+	if rf.matchIndex[peer] != last_idx {
+	rf.lastSentTime[peer] = time.Time{}    // immediately sent
+}
 	rf.nextIndex[peer] = i
 	return true
 }
@@ -641,9 +694,15 @@ func (rf *Raft) Start(command interface{}) (int, int, bool) {
 	index,_ := rf.GetLastLogIndexAndTerm()
 	term := rf.currentTerm
 
-	// // set my own nextIndex and matchIndex
 	// rf.nextIndex[rf.me] = index + 1
 	// rf.matchIndex[rf.me] = index
+
+	for i := range len(rf.peers) {
+		rf.lastSentTime[i] = time.Time{}
+	}
+	rf.ReplicateOne()
+
+	// // set my own nextIndex and matchIndex
 	// for peer := range len(rf.peers) {
 	// 	if peer == rf.me {
 	// 		continue
@@ -663,7 +722,10 @@ func (rf *Raft) Start(command interface{}) (int, int, bool) {
 // confusing debug output. any goroutine with a long-running loop
 // should call killed() to check whether it should stop.
 func (rf *Raft) Kill() {
+	dbgprint(rf, "killed")
 	atomic.StoreInt32(&rf.dead, 1)
+	rf.state = Follower
+	close(rf.applyCh)
 	// Your code here, if desired.
 }
 
@@ -740,10 +802,8 @@ func (rf *Raft) checkElectionTimeout() {
 
 }
 
-func (rf *Raft) sendHeartBeatIfLeader() {
-	for !rf.killed() {
-		rf.mu.Lock()
-		index, _ := rf.GetLastLogIndexAndTerm()
+func (rf *Raft) ReplicateOne() {
+	index, _ := rf.GetLastLogIndexAndTerm()
 		if rf.state == Leader {
 			// set my own nextIndex and matchIndex
 			rf.nextIndex[rf.me] = index + 1
@@ -752,13 +812,24 @@ func (rf *Raft) sendHeartBeatIfLeader() {
 				if peer == rf.me {
 					continue
 				}
+				if time.Since(rf.lastSentTime[peer]) < 100 * time.Millisecond {
+					continue
+				}
+				rf.lastSentTime[peer] = time.Now()
 				next_idx_for_peer := rf.nextIndex[peer]
 				if next_idx_for_peer > rf.lastIncludedIdx {
+					// 1. Calculate size
+					startIdx := rf.GetLogIdxFromAbsoluteIdx(next_idx_for_peer)
+					
+					// 2. MAKE A DEEP COPY
+					// Create a totally new array so the goroutine owns its own data
+					entriesCopy := make([]Log, len(rf.log) - startIdx)
+					copy(entriesCopy, rf.log[startIdx:])
 					args := &AppendEntriesArgs{
 						Term:            rf.currentTerm,
 						LeaderId:        rf.me,
 						LeaderCommitIdx: rf.commitIndex,
-						Entries:         rf.log[rf.GetLogIdxFromAbsoluteIdx(next_idx_for_peer):],
+						Entries:         entriesCopy,
 						PrevLogIdx:      next_idx_for_peer - 1,
 						PrevLogTerm:     rf.GetTermAtIdx(next_idx_for_peer - 1),
 					}
@@ -775,10 +846,26 @@ func (rf *Raft) sendHeartBeatIfLeader() {
 				}
 			}
 		}
+}
+
+func (rf *Raft) sendHeartBeatIfLeader() {
+	for !rf.killed() {
+		rf.mu.Lock()
+		rf.ReplicateOne()
 		rf.mu.Unlock()
-		time.Sleep(100 * time.Millisecond)
+		time.Sleep(20 * time.Millisecond)
 	}
 }
+
+func (rf *Raft) applyChangesPeriodically() {
+	for !rf.killed() {
+		rf.mu.Lock()
+		rf.ApplyChanges()
+		rf.mu.Unlock()
+		time.Sleep(10 * time.Millisecond)
+	}
+}
+
 
 // the service or tester wants to create a Raft server. the ports
 // of all the Raft servers (including this one) are in peers[]. this
@@ -819,10 +906,12 @@ func Make(peers []*labrpc.ClientEnd, me int,
 	rf.lastApplied = rf.lastIncludedIdx
 	rf.state = Follower
 	rf.commitIndex = rf.lastIncludedIdx
+	rf.lastSentTime = make([]time.Time, len(rf.peers))
 
 	// start ticker goroutine to start elections
 	go rf.checkElectionTimeout()
 	go rf.sendHeartBeatIfLeader()
+	go rf.applyChangesPeriodically()
 
 	dbgprint(rf, "Raft node created/ restarted")
 	return rf

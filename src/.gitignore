@@ -10,3 +10,8 @@ mrtmp.*
 /main/mrcoordinator
 /main/mrsequential
 /main/mrworker
+kvraft1/tmp
+kvraft1/tmp.txt
+kvraft1/tmp2.txt
+raft1/tmp.txt
+raft1/tmp2.txt

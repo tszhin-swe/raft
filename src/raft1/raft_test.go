@@ -133,6 +133,63 @@ func TestManyElections3A(t *testing.T) {
 	ts.checkOneLeader()
 }
 
+func TestExperimentLeaderElection(t *testing.T) {
+	// NOTE: To compare election tradeoffs, this test should be run twice.
+	// 1. Standard timeout: In raft.go, Make(), ensure election timeout is randomized
+	//    (e.g., 150ms + rand(0-150ms)).
+	// 2. Narrow timeout: Manually change the timeout to be narrow
+	//    (e.g., 150ms + rand(0-10ms)).
+	// Compare the printouts from the two runs.
+
+	servers := 5
+	ts := makeTest(t, servers, true, false)
+	defer ts.cleanup()
+
+	tester.AnnotateTest("TestExperimentLeaderElection", servers)
+	ts.Begin("Test (Experiment): leader election tradeoff analysis")
+
+	var totalElectionDuration time.Duration
+	var totalSplitVotes int
+	const iterations = 50
+
+	// Initial leader election
+	ts.checkOneLeader()
+
+	for i := 0; i < iterations; i++ {
+		leader := ts.checkOneLeader()
+
+		// Crash current leader
+		ts.g.DisconnectAll(leader)
+		tester.AnnotateConnection(ts.g.GetConnected())
+
+		start := time.Now()
+		initialTerm, _ := ts.srvs[(leader+1)%servers].Raft().GetState()
+
+		// Wait for a new leader
+		ts.checkOneLeader()
+		electionDuration := time.Since(start)
+		totalElectionDuration += electionDuration
+
+		// Check for split votes (term changes)
+		finalTerm, _ := ts.srvs[ts.checkOneLeader()].Raft().GetState()
+		splitVotes := finalTerm - initialTerm - 1
+		if splitVotes > 0 {
+			totalSplitVotes += splitVotes
+		}
+
+		// Restore crashed node
+		ts.g.ConnectOne(leader)
+		tester.AnnotateConnection(ts.g.GetConnected())
+		// Wait for it to integrate
+		ts.checkOneLeader()
+	}
+
+	avgElectionDuration := totalElectionDuration / iterations
+	t.Logf("Completed %d iterations", iterations)
+	t.Logf("Average Election Duration: %v", avgElectionDuration)
+	t.Logf("Total Split Votes Detected: %d", totalSplitVotes)
+}
+
 func TestBasicAgree3B(t *testing.T) {
 	servers := 3
 	ts := makeTest(t, servers, true, false)
@@ -529,6 +586,59 @@ func TestRejoin3B(t *testing.T) {
 	ts.one(105, servers, true)
 }
 
+func TestExperimentLogCatchup(t *testing.T) {
+	// NOTE: To compare log catch-up performance, this test should be run twice.
+	// 1. With optimization: Ensure the follower's AppendEntries handler provides
+	//    ConflictTerm/ConflictIndex upon mismatch (this is the default).
+	// 2. Without optimization: Manually modify the follower's AppendEntries handler
+	//    in raft.go to perform naive backtracking (e.g., by having the leader
+	//    decrement nextIndex by one on every failure).
+	// Compare the "Catch-up time" from the two runs.
+
+	servers := 5
+	ts := makeTest(t, servers, true, false)
+	defer ts.cleanup()
+
+	tester.AnnotateTest("TestExperimentLogCatchup", servers)
+	ts.Begin("Test (Experiment): Log Catch-up Optimization")
+
+	// Initial leader election
+	leader := ts.checkOneLeader()
+
+	// Isolate one follower
+	followerToIsolate := (leader + 1) % servers
+	ts.g.DisconnectAll(followerToIsolate)
+	tester.AnnotateConnection(ts.g.GetConnected())
+
+	// Submit a burst of entries to the leader
+	const lagSize = 500
+	for i := 0; i < lagSize; i++ {
+		ts.srvs[leader].Raft().Start(1000 + i)
+	}
+
+	// Wait for the majority to commit them
+	ts.one(2000, servers-1, true)
+	leaderLastLogIndex, _ := ts.srvs[leader].Raft().GetState()
+
+	// Reconnect the follower and measure catch-up time
+	start := time.Now()
+	ts.g.ConnectOne(followerToIsolate)
+	tester.AnnotateConnection(ts.g.GetConnected())
+
+	// Wait for the follower to catch up
+	for {
+		followerLastLogIndex, _ := ts.srvs[followerToIsolate].Raft().GetState()
+		if followerLastLogIndex >= leaderLastLogIndex {
+			break
+		}
+		time.Sleep(20 * time.Millisecond)
+	}
+	catchUpTime := time.Since(start)
+
+	t.Logf("Follower %d caught up to leader's log.", followerToIsolate)
+	t.Logf("Catch-up time for %d entries: %v", lagSize, catchUpTime)
+}
+
 func TestBackup3B(t *testing.T) {
 	servers := 5
 	ts := makeTest(t, servers, true, false)
@@ -765,6 +875,109 @@ loop:
 		total3-total2, 3*20)
 	tester.AnnotateCheckerSuccess(
 		"used a reasonable number of RPCs in idle", details)
+}
+
+func TestExperimentThroughputLatency(t *testing.T) {
+	configs := []struct {
+		name    string
+		servers int
+		rtt     int
+	}{
+		{"3 nodes, 5ms RTT", 3, 5},
+		{"5 nodes, 5ms RTT", 5, 5},
+		{"5 nodes, 15ms RTT", 5, 15},
+	}
+
+	for _, testConfig := range configs {
+		t.Run(testConfig.name, func(t *testing.T) {
+			servers := testConfig.servers
+			ts := makeTest(t, servers, true, false)
+			defer ts.cleanup()
+
+			ts.g.SetRtt(testConfig.rtt)
+
+			desc := fmt.Sprintf("Test (Experiment): Throughput/Latency with %s", testConfig.name)
+			tester.AnnotateTest(desc, servers)
+			ts.Begin(desc)
+
+			const nClients = 25
+			const nOpsPerClient = 1000
+			totalOps := nClients * nOpsPerClient
+
+			var wg sync.WaitGroup
+			latencyCh := make(chan time.Duration, totalOps)
+			startTimes := &sync.Map{}
+
+			testStart := time.Now()
+
+			for c := 0; c < nClients; c++ {
+				wg.Add(1)
+				go func(clientID int) {
+					defer wg.Done()
+					for i := 0; i < nOpsPerClient; i++ {
+						cmd := tester.Randstring(10)
+						var index int = -1
+						var ok bool = false
+						// Try to send to leader
+						for {
+							leader := ts.checkOneLeader()
+							var term int
+							index, term, ok = ts.srvs[leader].Raft().Start(cmd)
+							if ok {
+								// Remember start time
+								startTimes.Store(index, time.Now())
+								break
+							}
+							// If not leader, wait and find new leader
+							time.Sleep(10 * time.Millisecond)
+						}
+					}
+				}(c)
+			}
+
+			// Goroutine to collect latencies
+			committedIndices := &sync.Map{}
+			go func() {
+				for i := 1; i <= totalOps; i++ {
+					// This will block until index i is committed
+					ts.wait(i, servers, -1)
+					if startTime, found := startTimes.Load(i); found {
+						if _, loaded := committedIndices.LoadOrStore(i, true); !loaded {
+							latencyCh <- time.Since(startTime.(time.Time))
+						}
+					}
+				}
+			}()
+
+			wg.Wait() // Wait for all clients to submit their ops
+
+			// Wait for all ops to be committed
+			// A simple way to wait for all commits is to wait for the last one
+			ts.wait(totalOps, servers, -1)
+			close(latencyCh)
+
+			testDuration := time.Since(testStart)
+
+			latencies := []time.Duration{}
+			for lat := range latencyCh {
+				latencies = append(latencies, lat)
+			}
+
+			// In case some latencies were missed
+			if len(latencies) < totalOps {
+				t.Logf("Warning: only collected %d of %d latencies", len(latencies), totalOps)
+			}
+
+			sort.Slice(latencies, func(i, j int) bool { return latencies[i] < latencies[j] })
+			medianLatency := latencies[len(latencies)/2]
+			throughput := float64(totalOps) / testDuration.Seconds()
+
+			t.Logf("Config: %s", testConfig.name)
+			t.Logf("Total Test Duration: %v", testDuration)
+			t.Logf("Throughput: %.2f ops/sec", throughput)
+			t.Logf("Median Commit Latency: %v", medianLatency)
+		})
+	}
 }
 
 func TestPersist13C(t *testing.T) {

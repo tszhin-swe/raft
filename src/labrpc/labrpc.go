@@ -141,6 +141,7 @@ type Network struct {
 	done           chan struct{} // closed when Network is cleaned up
 	count          int32         // total RPC count, for statistics
 	bytes          int64         // total bytes send, for statistics
+	rtt            int
 }
 
 func MakeNetwork() *Network {
@@ -174,68 +175,24 @@ func (rn *Network) Cleanup() {
 	close(rn.done)
 }
 
+func (rn *Network) SetRtt(rtt int) {
+	rn.mu.Lock()
+	defer rn.mu.Unlock()
+	rn.rtt = rtt
+}
+
 func (rn *Network) Reliable(yes bool) {
 	rn.mu.Lock()
 	defer rn.mu.Unlock()
-
-	rn.reliable = yes
-}
-
-func (rn *Network) IsReliable() bool {
-	rn.mu.Lock()
-	defer rn.mu.Unlock()
-
-	return rn.reliable
-}
-
-func (rn *Network) LongReordering(yes bool) {
-	rn.mu.Lock()
-	defer rn.mu.Unlock()
-
-	rn.longReordering = yes
-}
-
-func (rn *Network) LongDelays(yes bool) {
-	rn.mu.Lock()
-	defer rn.mu.Unlock()
-
-	rn.longDelays = yes
-}
-
-func (rn *Network) IsLongDelays() bool {
-	rn.mu.Lock()
-	defer rn.mu.Unlock()
-
-	return rn.longDelays
-}
-
-func (rn *Network) readEndnameInfo(endname interface{}) (enabled bool,
-	servername interface{}, server *Server, reliable bool, longreordering bool,
-) {
-	rn.mu.Lock()
-	defer rn.mu.Unlock()
-
-	enabled = rn.enabled[endname]
-	servername = rn.connections[endname]
-	if servername != nil {
-		server = rn.servers[servername]
-	}
-	reliable = rn.reliable
-	longreordering = rn.longReordering
-	return
-}
-
+...
 func (rn *Network) isServerDead(endname interface{}, servername interface{}, server *Server) bool {
-	rn.mu.Lock()
-	defer rn.mu.Unlock()
-
-	if rn.enabled[endname] == false || rn.servers[servername] != server {
-		return true
-	}
-	return false
+...
 }
 
 func (rn *Network) processReq(req reqMsg) {
+	if rn.rtt > 0 {
+		time.Sleep(time.Duration(rn.rtt) * time.Millisecond)
+	}
 	enabled, servername, server, reliable, longreordering := rn.readEndnameInfo(req.endname)
 
 	if enabled && servername != nil && server != nil {

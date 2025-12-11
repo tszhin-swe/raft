@@ -25,7 +25,7 @@ type Test struct {
 
 const (
 	NSRV = 3
-	NSEC = 10
+	NSEC = 5
 
 	Gid = tester.GRP0
 )

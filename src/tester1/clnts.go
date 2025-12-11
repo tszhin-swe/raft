@@ -2,6 +2,7 @@ package tester
 
 import (
 	//"log"
+	"fmt"
 	"sync"
 
 	"6.5840/labrpc"
@@ -75,7 +76,7 @@ func (clnt *Clnt) ConnectAll() {
 	defer clnt.mu.Unlock()
 
 	for _, e := range clnt.ends {
-		//log.Printf("%p: ConnectAll: enable %v", clnt, e.name)
+		fmt.Printf("%p: ConnectAll: enable %v", clnt, e.name)
 		clnt.net.Enable(e.name, true)
 	}
 	clnt.srvs = nil

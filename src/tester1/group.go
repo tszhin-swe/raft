@@ -2,6 +2,7 @@ package tester
 
 import (
 	//"log"
+	"fmt"
 	"strconv"
 	"sync"
 
@@ -296,6 +297,8 @@ func (sg *ServerGrp) MakePartition(l int) ([]int, []int) {
 		}
 	}
 	p2[len(p2)-1] = l
+	fmt.Println("PARTITION 1", p1)
+	fmt.Println("PARTITION 2", p2)
 	return p1, p2
 }
 
@@ -313,4 +316,8 @@ func (sg *ServerGrp) Partition(p1 []int, p2 []int) {
 
 func (sg *ServerGrp) RpcCount(server int) int {
 	return sg.net.GetCount(ServerName(sg.gid, server))
+}
+
+func (sg *ServerGrp) SetRtt(rtt int) {
+	sg.net.SetRtt(rtt)
 }

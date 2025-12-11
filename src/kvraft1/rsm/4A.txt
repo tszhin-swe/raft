@@ -1,0 +1,456 @@
+[Node 0][Follower] Raft node created/ restarted  | Term: 0, CommitIdx: 0, LastApplied: 0, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 0 [00:11:08.021] 
+[Node 1][Follower] Raft node created/ restarted  | Term: 0, CommitIdx: 0, LastApplied: 0, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 0 [00:11:08.022] 
+[Node 2][Follower] Raft node created/ restarted  | Term: 0, CommitIdx: 0, LastApplied: 0, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 0 [00:11:08.022] 
+Test RSM basic (reliable network)...
+[RSM] me=0 | RSM Submit called with req:  1 
+
+[RSM] me=0 | RSM Submit not leader:  1 
+
+[RSM] me=1 | RSM Submit called with req:  1 
+
+[RSM] me=1 | RSM Submit not leader:  1 
+
+[RSM] me=2 | RSM Submit called with req:  1 
+
+[RSM] me=2 | RSM Submit not leader:  1 
+
+[RSM] me=0 | RSM Submit called with req:  2 
+
+[RSM] me=0 | RSM Submit not leader:  2 
+
+[RSM] me=1 | RSM Submit called with req:  2 
+
+[RSM] me=1 | RSM Submit not leader:  2 
+
+[RSM] me=2 | RSM Submit called with req:  2 
+
+[RSM] me=2 | RSM Submit not leader:  2 
+
+[RSM] me=0 | RSM Submit called with req:  3 
+
+[RSM] me=0 | RSM Submit not leader:  3 
+
+[RSM] me=1 | RSM Submit called with req:  3 
+
+[RSM] me=1 | RSM Submit not leader:  3 
+
+[RSM] me=2 | RSM Submit called with req:  3 
+
+[RSM] me=2 | RSM Submit not leader:  3 
+
+[RSM] me=0 | RSM Submit called with req:  4 
+
+[RSM] me=0 | RSM Submit not leader:  4 
+
+[RSM] me=1 | RSM Submit called with req:  4 
+
+[RSM] me=1 | RSM Submit not leader:  4 
+
+[RSM] me=2 | RSM Submit called with req:  4 
+
+[RSM] me=2 | RSM Submit not leader:  4 
+
+[RSM] me=0 | RSM Submit called with req:  5 
+
+[RSM] me=0 | RSM Submit not leader:  5 
+
+[RSM] me=1 | RSM Submit called with req:  5 
+
+[RSM] me=1 | RSM Submit not leader:  5 
+
+[RSM] me=2 | RSM Submit called with req:  5 
+
+[RSM] me=2 | RSM Submit not leader:  5 
+
+[RSM] me=0 | RSM Submit called with req:  6 
+
+[RSM] me=0 | RSM Submit not leader:  6 
+
+[RSM] me=1 | RSM Submit called with req:  6 
+
+[RSM] me=1 | RSM Submit not leader:  6 
+
+[RSM] me=2 | RSM Submit called with req:  6 
+
+[RSM] me=2 | RSM Submit not leader:  6 
+
+[RSM] me=0 | RSM Submit called with req:  7 
+
+[RSM] me=0 | RSM Submit not leader:  7 
+
+[RSM] me=1 | RSM Submit called with req:  7 
+
+[RSM] me=1 | RSM Submit not leader:  7 
+
+[RSM] me=2 | RSM Submit called with req:  7 
+
+[RSM] me=2 | RSM Submit not leader:  7 
+
+[Node 0][Candidate] start election  | Term: 1, CommitIdx: 0, LastApplied: 0, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 0 [00:11:08.327] 
+[Node 2][Follower] Received Request Vote  | Term: 0, CommitIdx: 0, LastApplied: 0, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 0 [00:11:08.327] 
+[Node 2][Follower] demoted to follower  | Term: 1, CommitIdx: 0, LastApplied: 0, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 0 [00:11:08.327] 
+[Node 1][Follower] Received Request Vote  | Term: 0, CommitIdx: 0, LastApplied: 0, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 0 [00:11:08.327] 
+[Node 1][Follower] demoted to follower  | Term: 1, CommitIdx: 0, LastApplied: 0, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 0 [00:11:08.328] 
+[RSM] me=0 | RSM Submit called with req:  8 
+
+[Node 0][Leader] ===Start called{8 {}}===  | Term: 1, CommitIdx: 0, LastApplied: 0, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 0 [00:11:08.375] 
+[Node 0][Leader] Sending AppendEntries to 2: Term 1, LeaderCommitIdx 0, PrevLogIdx 0, PrevLogTerm 0, 1 entries  | Term: 1, CommitIdx: 0, LastApplied: 0, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 1 [00:11:08.424] 
+[Node 0][Leader] Sending AppendEntries to 1: Term 1, LeaderCommitIdx 0, PrevLogIdx 0, PrevLogTerm 0, 1 entries  | Term: 1, CommitIdx: 0, LastApplied: 0, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 1 [00:11:08.424] 
+[Node 1][Follower] Received AppendEntries from 0: Term 1, LeaderCommitIdx 0, PrevLogIdx 0, PrevLogTerm 0, 1 entries  | Term: 1, CommitIdx: 0, LastApplied: 0, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 0 [00:11:08.425] 
+[Node 2][Follower] Received AppendEntries from 0: Term 1, LeaderCommitIdx 0, PrevLogIdx 0, PrevLogTerm 0, 1 entries  | Term: 1, CommitIdx: 0, LastApplied: 0, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 0 [00:11:08.425] 
+[Node 1][Follower] Reply to AppendEntries to 0: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 0, LastApplied: 0, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 1 [00:11:08.425] 
+[Node 2][Follower] Reply to AppendEntries to 0: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 0, LastApplied: 0, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 1 [00:11:08.425] 
+[Node 0][Leader] Received AppendEntries reply from 1: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 0, LastApplied: 0, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 1 [00:11:08.425] 
+[Node 0][Leader] peer 1 replicated up to 1
+  | Term: 1, CommitIdx: 0, LastApplied: 0, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 1 [00:11:08.425] 
+[Node 0][Leader] commit index updated to 1  | Term: 1, CommitIdx: 0, LastApplied: 0, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 1 [00:11:08.425] 
+[Node 0][Leader] applied changes{true {8 {}} 1 false [] 0 0}  | Term: 1, CommitIdx: 1, LastApplied: 0, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 1 [00:11:08.425] 
+[Node 0][Leader] Received AppendEntries reply from 2: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 1, LastApplied: 1, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 1 [00:11:08.425] 
+[Node 0][Leader] peer 2 replicated up to 1
+  | Term: 1, CommitIdx: 1, LastApplied: 1, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 1 [00:11:08.425] 
+[RSM] me=0 | ReadGoroutine : received msg from applyCh
+[RSM] me=0 | RSM Submit received msg:  8 
+
+[Node 0][Leader] Sending AppendEntries to 2: Term 1, LeaderCommitIdx 1, PrevLogIdx 1, PrevLogTerm 1, 0 entries  | Term: 1, CommitIdx: 1, LastApplied: 1, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 1 [00:11:08.524] 
+[Node 0][Leader] Sending AppendEntries to 1: Term 1, LeaderCommitIdx 1, PrevLogIdx 1, PrevLogTerm 1, 0 entries  | Term: 1, CommitIdx: 1, LastApplied: 1, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 1 [00:11:08.524] 
+[Node 2][Follower] Received AppendEntries from 0: Term 1, LeaderCommitIdx 1, PrevLogIdx 1, PrevLogTerm 1, 0 entries  | Term: 1, CommitIdx: 0, LastApplied: 0, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 1 [00:11:08.524] 
+[Node 2][Follower] applied changes{true {8 {}} 1 false [] 0 0}  | Term: 1, CommitIdx: 1, LastApplied: 0, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 1 [00:11:08.524] 
+[RSM] me=2 | [Node 1][Follower] Received AppendEntries from 0: Term 1, LeaderCommitIdx 1, PrevLogIdx 1, PrevLogTerm 1, 0 entries  | Term: 1, CommitIdx: 0, LastApplied: 0, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 1 [00:11:08.524] 
+[Node 1][Follower] applied changes{true {8 {}} 1 false [] 0 0}  | Term: 1, CommitIdx: 1, LastApplied: 0, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 1 [00:11:08.524] 
+[RSM] me=1 | ReadGoroutine : received msg from applyCh
+ReadGoroutine : received msg from applyCh
+[Node 2][Follower] Reply to AppendEntries to 0: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 1, LastApplied: 1, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 1 [00:11:08.524] 
+[Node 1][Follower] Reply to AppendEntries to 0: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 1, LastApplied: 1, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 1 [00:11:08.524] 
+[Node 0][Leader] Received AppendEntries reply from 2: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 1, LastApplied: 1, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 1 [00:11:08.524] 
+[Node 0][Leader] peer 2 replicated up to 1
+  | Term: 1, CommitIdx: 1, LastApplied: 1, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 1 [00:11:08.524] 
+[Node 0][Leader] Received AppendEntries reply from 1: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 1, LastApplied: 1, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 1 [00:11:08.524] 
+[Node 0][Leader] peer 1 replicated up to 1
+  | Term: 1, CommitIdx: 1, LastApplied: 1, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 1 [00:11:08.524] 
+[RSM] me=0 | RSM Submit called with req:  9 
+
+[Node 0][Leader] ===Start called{9 {}}===  | Term: 1, CommitIdx: 1, LastApplied: 1, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 1 [00:11:08.578] 
+[Node 0][Leader] Sending AppendEntries to 2: Term 1, LeaderCommitIdx 1, PrevLogIdx 1, PrevLogTerm 1, 1 entries  | Term: 1, CommitIdx: 1, LastApplied: 1, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 2 [00:11:08.625] 
+[Node 0][Leader] Sending AppendEntries to 1: Term 1, LeaderCommitIdx 1, PrevLogIdx 1, PrevLogTerm 1, 1 entries  | Term: 1, CommitIdx: 1, LastApplied: 1, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 2 [00:11:08.625] 
+[Node 2][Follower] Received AppendEntries from 0: Term 1, LeaderCommitIdx 1, PrevLogIdx 1, PrevLogTerm 1, 1 entries  | Term: 1, CommitIdx: 1, LastApplied: 1, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 1 [00:11:08.625] 
+[Node 1][Follower] Received AppendEntries from 0: Term 1, LeaderCommitIdx 1, PrevLogIdx 1, PrevLogTerm 1, 1 entries  | Term: 1, CommitIdx: 1, LastApplied: 1, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 1 [00:11:08.625] 
+[Node 2][Follower] Reply to AppendEntries to 0: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 1, LastApplied: 1, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 2 [00:11:08.625] 
+[Node 1][Follower] Reply to AppendEntries to 0: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 1, LastApplied: 1, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 2 [00:11:08.625] 
+[Node 0][Leader] Received AppendEntries reply from 2: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 1, LastApplied: 1, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 2 [00:11:08.625] 
+[Node 0][Leader] peer 2 replicated up to 2
+  | Term: 1, CommitIdx: 1, LastApplied: 1, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 2 [00:11:08.625] 
+[Node 0][Leader] commit index updated to 2  | Term: 1, CommitIdx: 1, LastApplied: 1, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 2 [00:11:08.625] 
+[Node 0][Leader] applied changes{true {9 {}} 2 false [] 0 0}  | Term: 1, CommitIdx: 2, LastApplied: 1, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 2 [00:11:08.625] 
+[RSM] me=0 | ReadGoroutine : received msg from applyCh
+[Node 0][Leader] Received AppendEntries reply from 1: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 2, LastApplied: 2, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 2 [00:11:08.625] 
+[Node 0][Leader] peer 1 replicated up to 2
+  | Term: 1, CommitIdx: 2, LastApplied: 2, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 2 [00:11:08.625] 
+[RSM] me=0 | RSM Submit received msg:  9 
+
+[Node 0][Leader] Sending AppendEntries to 2: Term 1, LeaderCommitIdx 2, PrevLogIdx 2, PrevLogTerm 1, 0 entries  | Term: 1, CommitIdx: 2, LastApplied: 2, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 2 [00:11:08.725] 
+[Node 0][Leader] Sending AppendEntries to 1: Term 1, LeaderCommitIdx 2, PrevLogIdx 2, PrevLogTerm 1, 0 entries  | Term: 1, CommitIdx: 2, LastApplied: 2, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 2 [00:11:08.725] 
+[Node 2][Follower] Received AppendEntries from 0: Term 1, LeaderCommitIdx 2, PrevLogIdx 2, PrevLogTerm 1, 0 entries  | Term: 1, CommitIdx: 1, LastApplied: 1, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 2 [00:11:08.726] 
+[Node 1][Follower] Received AppendEntries from 0: Term 1, LeaderCommitIdx 2, PrevLogIdx 2, PrevLogTerm 1, 0 entries  | Term: 1, CommitIdx: 1, LastApplied: 1, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 2 [00:11:08.726] 
+[Node 2][Follower] applied changes{true {9 {}} 2 false [] 0 0}  | Term: 1, CommitIdx: 2, LastApplied: 1, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 2 [00:11:08.726] 
+[Node 2][Follower] Reply to AppendEntries to 0: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 2, LastApplied: 2, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 2 [00:11:08.726] 
+[RSM] me=1 | [Node 0][Leader] Received AppendEntries reply from 2: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 2, LastApplied: 2, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 2 [00:11:08.726] 
+[Node 0][Leader] peer 2 replicated up to 2
+  | Term: 1, CommitIdx: 2, LastApplied: 2, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 2 [00:11:08.726] 
+ReadGoroutine : received msg from applyCh
+[RSM] me=2 | ReadGoroutine : received msg from applyCh
+[Node 1][Follower] applied changes{true {9 {}} 2 false [] 0 0}  | Term: 1, CommitIdx: 2, LastApplied: 1, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 2 [00:11:08.726] 
+[Node 1][Follower] Reply to AppendEntries to 0: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 2, LastApplied: 2, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 2 [00:11:08.726] 
+[Node 0][Leader] Received AppendEntries reply from 1: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 2, LastApplied: 2, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 2 [00:11:08.726] 
+[Node 0][Leader] peer 1 replicated up to 2
+  | Term: 1, CommitIdx: 2, LastApplied: 2, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 2 [00:11:08.726] 
+[RSM] me=0 | RSM Submit called with req:  10 
+
+[Node 0][Leader] ===Start called{10 {}}===  | Term: 1, CommitIdx: 2, LastApplied: 2, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 2 [00:11:08.777] 
+[Node 0][Leader] Sending AppendEntries to 2: Term 1, LeaderCommitIdx 2, PrevLogIdx 2, PrevLogTerm 1, 1 entries  | Term: 1, CommitIdx: 2, LastApplied: 2, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 3 [00:11:08.826] 
+[Node 0][Leader] Sending AppendEntries to 1: Term 1, LeaderCommitIdx 2, PrevLogIdx 2, PrevLogTerm 1, 1 entries  | Term: 1, CommitIdx: 2, LastApplied: 2, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 3 [00:11:08.827] 
+[Node 2][Follower] Received AppendEntries from 0: Term 1, LeaderCommitIdx 2, PrevLogIdx 2, PrevLogTerm 1, 1 entries  | Term: 1, CommitIdx: 2, LastApplied: 2, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 2 [00:11:08.827] 
+[Node 1][Follower] Received AppendEntries from 0: Term 1, LeaderCommitIdx 2, PrevLogIdx 2, PrevLogTerm 1, 1 entries  | Term: 1, CommitIdx: 2, LastApplied: 2, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 2 [00:11:08.827] 
+[Node 2][Follower] Reply to AppendEntries to 0: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 2, LastApplied: 2, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 3 [00:11:08.827] 
+[Node 1][Follower] Reply to AppendEntries to 0: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 2, LastApplied: 2, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 3 [00:11:08.827] 
+[Node 0][Leader] Received AppendEntries reply from 1: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 2, LastApplied: 2, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 3 [00:11:08.827] 
+[Node 0][Leader] peer 1 replicated up to 3
+  | Term: 1, CommitIdx: 2, LastApplied: 2, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 3 [00:11:08.828] 
+[Node 0][Leader] commit index updated to 3  | Term: 1, CommitIdx: 2, LastApplied: 2, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 3 [00:11:08.828] 
+[Node 0][Leader] applied changes{true {10 {}} 3 false [] 0 0}  | Term: 1, CommitIdx: 3, LastApplied: 2, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 3 [00:11:08.828] 
+[Node 0][Leader] Received AppendEntries reply from 2: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 3, LastApplied: 3, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 3 [00:11:08.828] 
+[Node 0][Leader] peer 2 replicated up to 3
+  | Term: 1, CommitIdx: 3, LastApplied: 3, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 3 [00:11:08.828] 
+[RSM] me=0 | ReadGoroutine : received msg from applyCh
+[RSM] me=0 | RSM Submit received msg:  10 
+
+[Node 0][Leader] Sending AppendEntries to 2: Term 1, LeaderCommitIdx 3, PrevLogIdx 3, PrevLogTerm 1, 0 entries  | Term: 1, CommitIdx: 3, LastApplied: 3, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 3 [00:11:08.926] 
+[Node 0][Leader] Sending AppendEntries to 1: Term 1, LeaderCommitIdx 3, PrevLogIdx 3, PrevLogTerm 1, 0 entries  | Term: 1, CommitIdx: 3, LastApplied: 3, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 3 [00:11:08.927] 
+[Node 2][Follower] Received AppendEntries from 0: Term 1, LeaderCommitIdx 3, PrevLogIdx 3, PrevLogTerm 1, 0 entries  | Term: 1, CommitIdx: 2, LastApplied: 2, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 3 [00:11:08.927] 
+[Node 1][Follower] Received AppendEntries from 0: Term 1, LeaderCommitIdx 3, PrevLogIdx 3, PrevLogTerm 1, 0 entries  | Term: 1, CommitIdx: 2, LastApplied: 2, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 3 [00:11:08.927] 
+[RSM] me=2 | ReadGoroutine : received msg from applyCh
+[Node 2][Follower] applied changes{true {10 {}} 3 false [] 0 0}  | Term: 1, CommitIdx: 3, LastApplied: 2, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 3 [00:11:08.927] 
+[Node 2][Follower] Reply to AppendEntries to 0: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 3, LastApplied: 3, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 3 [00:11:08.927] 
+[RSM] me=1 | ReadGoroutine : received msg from applyCh
+[Node 1][Follower] applied changes{true {10 {}} 3 false [] 0 0}  | Term: 1, CommitIdx: 3, LastApplied: 2, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 3 [00:11:08.927] 
+[Node 1][Follower] Reply to AppendEntries to 0: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 3, LastApplied: 3, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 3 [00:11:08.927] 
+[Node 0][Leader] Received AppendEntries reply from 2: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 3, LastApplied: 3, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 3 [00:11:08.927] 
+[Node 0][Leader] peer 2 replicated up to 3
+  | Term: 1, CommitIdx: 3, LastApplied: 3, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 3 [00:11:08.927] 
+[Node 0][Leader] Received AppendEntries reply from 1: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 3, LastApplied: 3, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 3 [00:11:08.927] 
+[Node 0][Leader] peer 1 replicated up to 3
+  | Term: 1, CommitIdx: 3, LastApplied: 3, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 3 [00:11:08.928] 
+[RSM] me=0 | RSM Submit called with req:  11 
+
+[Node 0][Leader] ===Start called{11 {}}===  | Term: 1, CommitIdx: 3, LastApplied: 3, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 3 [00:11:08.981] 
+[Node 0][Leader] Sending AppendEntries to 2: Term 1, LeaderCommitIdx 3, PrevLogIdx 3, PrevLogTerm 1, 1 entries  | Term: 1, CommitIdx: 3, LastApplied: 3, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 4 [00:11:09.027] 
+[Node 0][Leader] Sending AppendEntries to 1: Term 1, LeaderCommitIdx 3, PrevLogIdx 3, PrevLogTerm 1, 1 entries  | Term: 1, CommitIdx: 3, LastApplied: 3, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 4 [00:11:09.027] 
+[Node 2][Follower] Received AppendEntries from 0: Term 1, LeaderCommitIdx 3, PrevLogIdx 3, PrevLogTerm 1, 1 entries  | Term: 1, CommitIdx: 3, LastApplied: 3, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 3 [00:11:09.027] 
+[Node 1][Follower] Received AppendEntries from 0: Term 1, LeaderCommitIdx 3, PrevLogIdx 3, PrevLogTerm 1, 1 entries  | Term: 1, CommitIdx: 3, LastApplied: 3, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 3 [00:11:09.027] 
+[Node 2][Follower] Reply to AppendEntries to 0: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 3, LastApplied: 3, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 4 [00:11:09.028] 
+[Node 0][Leader] Received AppendEntries reply from 2: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 3, LastApplied: 3, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 4 [00:11:09.028] 
+[Node 0][Leader] peer 2 replicated up to 4
+  | Term: 1, CommitIdx: 3, LastApplied: 3, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 4 [00:11:09.028] 
+[Node 0][Leader] commit index updated to 4  | Term: 1, CommitIdx: 3, LastApplied: 3, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 4 [00:11:09.028] 
+[Node 0][Leader] applied changes{true {11 {}} 4 false [] 0 0}  | Term: 1, CommitIdx: 4, LastApplied: 3, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 4 [00:11:09.028] 
+[RSM] me=0 | ReadGoroutine : received msg from applyCh
+[Node 1][Follower] Reply to AppendEntries to 0: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 3, LastApplied: 3, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 4 [00:11:09.028] 
+[RSM] me=0 | RSM Submit received msg:  11 
+
+[Node 0][Leader] Received AppendEntries reply from 1: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 4, LastApplied: 4, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 4 [00:11:09.028] 
+[Node 0][Leader] peer 1 replicated up to 4
+  | Term: 1, CommitIdx: 4, LastApplied: 4, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 4 [00:11:09.028] 
+[Node 0][Leader] Sending AppendEntries to 2: Term 1, LeaderCommitIdx 4, PrevLogIdx 4, PrevLogTerm 1, 0 entries  | Term: 1, CommitIdx: 4, LastApplied: 4, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 4 [00:11:09.128] 
+[Node 0][Leader] Sending AppendEntries to 1: Term 1, LeaderCommitIdx 4, PrevLogIdx 4, PrevLogTerm 1, 0 entries  | Term: 1, CommitIdx: 4, LastApplied: 4, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 4 [00:11:09.128] 
+[Node 2][Follower] Received AppendEntries from 0: Term 1, LeaderCommitIdx 4, PrevLogIdx 4, PrevLogTerm 1, 0 entries  | Term: 1, CommitIdx: 3, LastApplied: 3, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 4 [00:11:09.128] 
+[Node 1][Follower] Received AppendEntries from 0: Term 1, LeaderCommitIdx 4, PrevLogIdx 4, PrevLogTerm 1, 0 entries  | Term: 1, CommitIdx: 3, LastApplied: 3, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 4 [00:11:09.128] 
+[Node 2][Follower] applied changes{true {11 {}} 4 false [] 0 0}  | Term: 1, CommitIdx: 4, LastApplied: 3, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 4 [00:11:09.129] 
+[Node 1][Follower] applied changes{true {11 {}} 4 false [] 0 0}  | Term: 1, CommitIdx: 4, LastApplied: 3, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 4 [00:11:09.129] 
+[Node 1][Follower] Reply to AppendEntries to 0: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 4, LastApplied: 4, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 4 [00:11:09.129] 
+[RSM] me=2 | ReadGoroutine : received msg from applyCh
+[Node 2][Follower] Reply to AppendEntries to 0: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 4, LastApplied: 4, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 4 [00:11:09.129] 
+[Node 0][Leader] Received AppendEntries reply from 1: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 4, LastApplied: 4, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 4 [00:11:09.129] 
+[RSM] me=1 | ReadGoroutine : received msg from applyCh
+[Node 0][Leader] peer 1 replicated up to 4
+  | Term: 1, CommitIdx: 4, LastApplied: 4, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 4 [00:11:09.129] 
+[Node 0][Leader] Received AppendEntries reply from 2: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 4, LastApplied: 4, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 4 [00:11:09.129] 
+[Node 0][Leader] peer 2 replicated up to 4
+  | Term: 1, CommitIdx: 4, LastApplied: 4, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 4 [00:11:09.129] 
+[RSM] me=0 | RSM Submit called with req:  12 
+
+[Node 0][Leader] ===Start called{12 {}}===  | Term: 1, CommitIdx: 4, LastApplied: 4, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 4 [00:11:09.180] 
+[Node 0][Leader] Sending AppendEntries to 2: Term 1, LeaderCommitIdx 4, PrevLogIdx 4, PrevLogTerm 1, 1 entries  | Term: 1, CommitIdx: 4, LastApplied: 4, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 5 [00:11:09.228] 
+[Node 0][Leader] Sending AppendEntries to 1: Term 1, LeaderCommitIdx 4, PrevLogIdx 4, PrevLogTerm 1, 1 entries  | Term: 1, CommitIdx: 4, LastApplied: 4, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 5 [00:11:09.228] 
+[Node 1][Follower] Received AppendEntries from 0: Term 1, LeaderCommitIdx 4, PrevLogIdx 4, PrevLogTerm 1, 1 entries  | Term: 1, CommitIdx: 4, LastApplied: 4, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 4 [00:11:09.229] 
+[Node 2][Follower] Received AppendEntries from 0: Term 1, LeaderCommitIdx 4, PrevLogIdx 4, PrevLogTerm 1, 1 entries  | Term: 1, CommitIdx: 4, LastApplied: 4, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 4 [00:11:09.229] 
+[Node 1][Follower] Reply to AppendEntries to 0: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 4, LastApplied: 4, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 5 [00:11:09.229] 
+[Node 2][Follower] Reply to AppendEntries to 0: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 4, LastApplied: 4, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 5 [00:11:09.229] 
+[Node 0][Leader] Received AppendEntries reply from 1: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 4, LastApplied: 4, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 5 [00:11:09.229] 
+[Node 0][Leader] peer 1 replicated up to 5
+  | Term: 1, CommitIdx: 4, LastApplied: 4, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 5 [00:11:09.229] 
+[Node 0][Leader] commit index updated to 5  | Term: 1, CommitIdx: 4, LastApplied: 4, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 5 [00:11:09.229] 
+[Node 0][Leader] applied changes{true {12 {}} 5 false [] 0 0}  | Term: 1, CommitIdx: 5, LastApplied: 4, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 5 [00:11:09.229] 
+[Node 0][Leader] Received AppendEntries reply from 2: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 5, LastApplied: 5, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 5 [00:11:09.229] 
+[Node 0][Leader] peer 2 replicated up to 5
+  | Term: 1, CommitIdx: 5, LastApplied: 5, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 5 [00:11:09.229] 
+[RSM] me=0 | ReadGoroutine : received msg from applyCh
+[RSM] me=0 | RSM Submit received msg:  12 
+
+[Node 0][Leader] Sending AppendEntries to 2: Term 1, LeaderCommitIdx 5, PrevLogIdx 5, PrevLogTerm 1, 0 entries  | Term: 1, CommitIdx: 5, LastApplied: 5, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 5 [00:11:09.328] 
+[Node 0][Leader] Sending AppendEntries to 1: Term 1, LeaderCommitIdx 5, PrevLogIdx 5, PrevLogTerm 1, 0 entries  | Term: 1, CommitIdx: 5, LastApplied: 5, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 5 [00:11:09.328] 
+[Node 2][Follower] Received AppendEntries from 0: Term 1, LeaderCommitIdx 5, PrevLogIdx 5, PrevLogTerm 1, 0 entries  | Term: 1, CommitIdx: 4, LastApplied: 4, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 5 [00:11:09.329] 
+[Node 1][Follower] Received AppendEntries from 0: Term 1, LeaderCommitIdx 5, PrevLogIdx 5, PrevLogTerm 1, 0 entries  | Term: 1, CommitIdx: 4, LastApplied: 4, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 5 [00:11:09.329] 
+[Node 2][Follower] applied changes{true {12 {}} 5 false [] 0 0}  | Term: 1, CommitIdx: 5, LastApplied: 4, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 5 [00:11:09.329] 
+[Node 2][Follower] Reply to AppendEntries to 0: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 5, LastApplied: 5, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 5 [00:11:09.329] 
+[Node 1][Follower] applied changes{true {12 {}} 5 false [] 0 0}  | Term: 1, CommitIdx: 5, LastApplied: 4, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 5 [00:11:09.329] 
+[Node 0][Leader] Received AppendEntries reply from 2: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 5, LastApplied: 5, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 5 [00:11:09.329] 
+[Node 0][Leader] peer 2 replicated up to 5
+  | Term: 1, CommitIdx: 5, LastApplied: 5, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 5 [00:11:09.329] 
+[Node 1][Follower] Reply to AppendEntries to 0: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 5, LastApplied: 5, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 5 [00:11:09.329] 
+[RSM] me=1 | ReadGoroutine : received msg from applyCh
+[Node 0][Leader] Received AppendEntries reply from 1: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 5, LastApplied: 5, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 5 [00:11:09.329] 
+[Node 0][Leader] peer 1 replicated up to 5
+  | Term: 1, CommitIdx: 5, LastApplied: 5, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 5 [00:11:09.329] 
+[RSM] me=2 | ReadGoroutine : received msg from applyCh
+[RSM] me=0 | RSM Submit called with req:  13 
+
+[Node 0][Leader] ===Start called{13 {}}===  | Term: 1, CommitIdx: 5, LastApplied: 5, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 5 [00:11:09.381] 
+[Node 0][Leader] Sending AppendEntries to 2: Term 1, LeaderCommitIdx 5, PrevLogIdx 5, PrevLogTerm 1, 1 entries  | Term: 1, CommitIdx: 5, LastApplied: 5, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 6 [00:11:09.429] 
+[Node 0][Leader] Sending AppendEntries to 1: Term 1, LeaderCommitIdx 5, PrevLogIdx 5, PrevLogTerm 1, 1 entries  | Term: 1, CommitIdx: 5, LastApplied: 5, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 6 [00:11:09.429] 
+[Node 1][Follower] Received AppendEntries from 0: Term 1, LeaderCommitIdx 5, PrevLogIdx 5, PrevLogTerm 1, 1 entries  | Term: 1, CommitIdx: 5, LastApplied: 5, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 5 [00:11:09.429] 
+[Node 2][Follower] Received AppendEntries from 0: Term 1, LeaderCommitIdx 5, PrevLogIdx 5, PrevLogTerm 1, 1 entries  | Term: 1, CommitIdx: 5, LastApplied: 5, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 5 [00:11:09.429] 
+[Node 1][Follower] Reply to AppendEntries to 0: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 5, LastApplied: 5, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 6 [00:11:09.429] 
+[Node 2][Follower] Reply to AppendEntries to 0: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 5, LastApplied: 5, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 6 [00:11:09.430] 
+[Node 0][Leader] Received AppendEntries reply from 1: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 5, LastApplied: 5, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 6 [00:11:09.430] 
+[Node 0][Leader] peer 1 replicated up to 6
+  | Term: 1, CommitIdx: 5, LastApplied: 5, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 6 [00:11:09.430] 
+[Node 0][Leader] commit index updated to 6  | Term: 1, CommitIdx: 5, LastApplied: 5, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 6 [00:11:09.430] 
+[Node 0][Leader] applied changes{true {13 {}} 6 false [] 0 0}  | Term: 1, CommitIdx: 6, LastApplied: 5, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 6 [00:11:09.430] 
+[RSM] me=0 | ReadGoroutine : received msg from applyCh
+[Node 0][Leader] Received AppendEntries reply from 2: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 6, LastApplied: 6, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 6 [00:11:09.430] 
+[Node 0][Leader] peer 2 replicated up to 6
+  | Term: 1, CommitIdx: 6, LastApplied: 6, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 6 [00:11:09.430] 
+[RSM] me=0 | RSM Submit received msg:  13 
+
+[Node 0][Leader] Sending AppendEntries to 2: Term 1, LeaderCommitIdx 6, PrevLogIdx 6, PrevLogTerm 1, 0 entries  | Term: 1, CommitIdx: 6, LastApplied: 6, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 6 [00:11:09.530] 
+[Node 0][Leader] Sending AppendEntries to 1: Term 1, LeaderCommitIdx 6, PrevLogIdx 6, PrevLogTerm 1, 0 entries  | Term: 1, CommitIdx: 6, LastApplied: 6, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 6 [00:11:09.530] 
+[Node 2][Follower] Received AppendEntries from 0: Term 1, LeaderCommitIdx 6, PrevLogIdx 6, PrevLogTerm 1, 0 entries  | Term: 1, CommitIdx: 5, LastApplied: 5, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 6 [00:11:09.530] 
+[Node 1][Follower] Received AppendEntries from 0: Term 1, LeaderCommitIdx 6, PrevLogIdx 6, PrevLogTerm 1, 0 entries  | Term: 1, CommitIdx: 5, LastApplied: 5, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 6 [00:11:09.530] 
+[Node 2][Follower] applied changes{true {13 {}} 6 false [] 0 0}  | Term: 1, CommitIdx: 6, LastApplied: 5, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 6 [00:11:09.530] 
+[Node 2][Follower] Reply to AppendEntries to 0: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 6, LastApplied: 6, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 6 [00:11:09.530] 
+[RSM] me=2 | ReadGoroutine : received msg from applyCh
+[RSM] me=1 | ReadGoroutine : received msg from applyCh
+[Node 1][Follower] applied changes{true {13 {}} 6 false [] 0 0}  | Term: 1, CommitIdx: 6, LastApplied: 5, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 6 [00:11:09.530] 
+[Node 1][Follower] Reply to AppendEntries to 0: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 6, LastApplied: 6, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 6 [00:11:09.530] 
+[Node 0][Leader] Received AppendEntries reply from 1: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 6, LastApplied: 6, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 6 [00:11:09.531] 
+[Node 0][Leader] peer 1 replicated up to 6
+  | Term: 1, CommitIdx: 6, LastApplied: 6, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 6 [00:11:09.531] 
+[Node 0][Leader] Received AppendEntries reply from 2: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 6, LastApplied: 6, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 6 [00:11:09.531] 
+[Node 0][Leader] peer 2 replicated up to 6
+  | Term: 1, CommitIdx: 6, LastApplied: 6, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 6 [00:11:09.531] 
+[RSM] me=0 | RSM Submit called with req:  14 
+
+[Node 0][Leader] ===Start called{14 {}}===  | Term: 1, CommitIdx: 6, LastApplied: 6, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 6 [00:11:09.582] 
+[Node 0][Leader] Sending AppendEntries to 2: Term 1, LeaderCommitIdx 6, PrevLogIdx 6, PrevLogTerm 1, 1 entries  | Term: 1, CommitIdx: 6, LastApplied: 6, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 7 [00:11:09.630] 
+[Node 0][Leader] Sending AppendEntries to 1: Term 1, LeaderCommitIdx 6, PrevLogIdx 6, PrevLogTerm 1, 1 entries  | Term: 1, CommitIdx: 6, LastApplied: 6, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 7 [00:11:09.630] 
+[Node 2][Follower] Received AppendEntries from 0: Term 1, LeaderCommitIdx 6, PrevLogIdx 6, PrevLogTerm 1, 1 entries  | Term: 1, CommitIdx: 6, LastApplied: 6, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 6 [00:11:09.630] 
+[Node 1][Follower] Received AppendEntries from 0: Term 1, LeaderCommitIdx 6, PrevLogIdx 6, PrevLogTerm 1, 1 entries  | Term: 1, CommitIdx: 6, LastApplied: 6, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 6 [00:11:09.630] 
+[Node 2][Follower] Reply to AppendEntries to 0: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 6, LastApplied: 6, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 7 [00:11:09.631] 
+[Node 1][Follower] Reply to AppendEntries to 0: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 6, LastApplied: 6, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 7 [00:11:09.631] 
+[Node 0][Leader] Received AppendEntries reply from 2: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 6, LastApplied: 6, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 7 [00:11:09.631] 
+[Node 0][Leader] peer 2 replicated up to 7
+  | Term: 1, CommitIdx: 6, LastApplied: 6, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 7 [00:11:09.631] 
+[Node 0][Leader] commit index updated to 7  | Term: 1, CommitIdx: 6, LastApplied: 6, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 7 [00:11:09.631] 
+[Node 0][Leader] applied changes{true {14 {}} 7 false [] 0 0}  | Term: 1, CommitIdx: 7, LastApplied: 6, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 7 [00:11:09.631] 
+[Node 0][Leader] Received AppendEntries reply from 1: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 7, LastApplied: 7, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 7 [00:11:09.631] 
+[Node 0][Leader] peer 1 replicated up to 7
+  | Term: 1, CommitIdx: 7, LastApplied: 7, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 7 [00:11:09.631] 
+[RSM] me=0 | ReadGoroutine : received msg from applyCh
+[RSM] me=0 | RSM Submit received msg:  14 
+
+[Node 0][Leader] Sending AppendEntries to 2: Term 1, LeaderCommitIdx 7, PrevLogIdx 7, PrevLogTerm 1, 0 entries  | Term: 1, CommitIdx: 7, LastApplied: 7, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 7 [00:11:09.730] 
+[Node 0][Leader] Sending AppendEntries to 1: Term 1, LeaderCommitIdx 7, PrevLogIdx 7, PrevLogTerm 1, 0 entries  | Term: 1, CommitIdx: 7, LastApplied: 7, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 7 [00:11:09.731] 
+[Node 1][Follower] Received AppendEntries from 0: Term 1, LeaderCommitIdx 7, PrevLogIdx 7, PrevLogTerm 1, 0 entries  | Term: 1, CommitIdx: 6, LastApplied: 6, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 7 [00:11:09.731] 
+[Node 2][Follower] Received AppendEntries from 0: Term 1, LeaderCommitIdx 7, PrevLogIdx 7, PrevLogTerm 1, 0 entries  | Term: 1, CommitIdx: 6, LastApplied: 6, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 7 [00:11:09.731] 
+[Node 1][Follower] applied changes{true {14 {}} 7 false [] 0 0}  | Term: 1, CommitIdx: 7, LastApplied: 6, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 7 [00:11:09.731] 
+[Node 1][Follower] Reply to AppendEntries to 0: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 7, LastApplied: 7, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 7 [00:11:09.731] 
+[Node 2][Follower] applied changes{true {14 {}} 7 false [] 0 0}  | Term: 1, CommitIdx: 7, LastApplied: 6, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 7 [00:11:09.731] 
+[Node 2][Follower] Reply to AppendEntries to 0: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 7, LastApplied: 7, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 7 [00:11:09.731] 
+[RSM] me=1 | ReadGoroutine : received msg from applyCh
+[Node 0][Leader] Received AppendEntries reply from 1: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 7, LastApplied: 7, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 7 [00:11:09.731] 
+[Node 0][Leader] peer 1 replicated up to 7
+  | Term: 1, CommitIdx: 7, LastApplied: 7, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 7 [00:11:09.731] 
+[Node 0][Leader] Received AppendEntries reply from 2: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 7, LastApplied: 7, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 7 [00:11:09.731] 
+[Node 0][Leader] peer 2 replicated up to 7
+  | Term: 1, CommitIdx: 7, LastApplied: 7, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 7 [00:11:09.731] 
+[RSM] me=2 | ReadGoroutine : received msg from applyCh
+[RSM] me=0 | RSM Submit called with req:  15 
+
+[Node 0][Leader] ===Start called{15 {}}===  | Term: 1, CommitIdx: 7, LastApplied: 7, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 7 [00:11:09.783] 
+[Node 0][Leader] Sending AppendEntries to 2: Term 1, LeaderCommitIdx 7, PrevLogIdx 7, PrevLogTerm 1, 1 entries  | Term: 1, CommitIdx: 7, LastApplied: 7, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 8 [00:11:09.831] 
+[Node 0][Leader] Sending AppendEntries to 1: Term 1, LeaderCommitIdx 7, PrevLogIdx 7, PrevLogTerm 1, 1 entries  | Term: 1, CommitIdx: 7, LastApplied: 7, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 8 [00:11:09.831] 
+[Node 2][Follower] Received AppendEntries from 0: Term 1, LeaderCommitIdx 7, PrevLogIdx 7, PrevLogTerm 1, 1 entries  | Term: 1, CommitIdx: 7, LastApplied: 7, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 7 [00:11:09.831] 
+[Node 1][Follower] Received AppendEntries from 0: Term 1, LeaderCommitIdx 7, PrevLogIdx 7, PrevLogTerm 1, 1 entries  | Term: 1, CommitIdx: 7, LastApplied: 7, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 7 [00:11:09.831] 
+[Node 2][Follower] Reply to AppendEntries to 0: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 7, LastApplied: 7, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 8 [00:11:09.831] 
+[Node 1][Follower] Reply to AppendEntries to 0: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 7, LastApplied: 7, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 8 [00:11:09.831] 
+[Node 0][Leader] Received AppendEntries reply from 2: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 7, LastApplied: 7, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 8 [00:11:09.831] 
+[Node 0][Leader] peer 2 replicated up to 8
+  | Term: 1, CommitIdx: 7, LastApplied: 7, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 8 [00:11:09.831] 
+[Node 0][Leader] commit index updated to 8  | Term: 1, CommitIdx: 7, LastApplied: 7, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 8 [00:11:09.832] 
+[Node 0][Leader] applied changes{true {15 {}} 8 false [] 0 0}  | Term: 1, CommitIdx: 8, LastApplied: 7, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 8 [00:11:09.832] 
+[Node 0][Leader] Received AppendEntries reply from 1: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 8, LastApplied: 8, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 8 [00:11:09.832] 
+[Node 0][Leader] peer 1 replicated up to 8
+  | Term: 1, CommitIdx: 8, LastApplied: 8, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 8 [00:11:09.832] 
+[RSM] me=0 | ReadGoroutine : received msg from applyCh
+[RSM] me=0 | RSM Submit received msg:  15 
+
+[Node 0][Leader] Sending AppendEntries to 2: Term 1, LeaderCommitIdx 8, PrevLogIdx 8, PrevLogTerm 1, 0 entries  | Term: 1, CommitIdx: 8, LastApplied: 8, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 8 [00:11:09.932] 
+[Node 0][Leader] Sending AppendEntries to 1: Term 1, LeaderCommitIdx 8, PrevLogIdx 8, PrevLogTerm 1, 0 entries  | Term: 1, CommitIdx: 8, LastApplied: 8, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 8 [00:11:09.932] 
+[Node 2][Follower] Received AppendEntries from 0: Term 1, LeaderCommitIdx 8, PrevLogIdx 8, PrevLogTerm 1, 0 entries  | Term: 1, CommitIdx: 7, LastApplied: 7, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 8 [00:11:09.932] 
+[Node 1][Follower] Received AppendEntries from 0: Term 1, LeaderCommitIdx 8, PrevLogIdx 8, PrevLogTerm 1, 0 entries  | Term: 1, CommitIdx: 7, LastApplied: 7, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 8 [00:11:09.932] 
+[Node 2][Follower] applied changes{true {15 {}} 8 false [] 0 0}  | Term: 1, CommitIdx: 8, LastApplied: 7, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 8 [00:11:09.932] 
+[Node 2][Follower] Reply to AppendEntries to 0: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 8, LastApplied: 8, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 8 [00:11:09.932] 
+[Node 1][Follower] applied changes{true {15 {}} 8 false [] 0 0}  | Term: 1, CommitIdx: 8, LastApplied: 7, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 8 [00:11:09.932] 
+[Node 1][Follower] Reply to AppendEntries to 0: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 8, LastApplied: 8, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 8 [00:11:09.932] 
+[RSM] me=2 | ReadGoroutine : received msg from applyCh
+[Node 0][Leader] Received AppendEntries reply from 2: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 8, LastApplied: 8, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 8 [00:11:09.932] 
+[Node 0][Leader] peer 2 replicated up to 8
+  | Term: 1, CommitIdx: 8, LastApplied: 8, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 8 [00:11:09.932] 
+[RSM] me=1 | ReadGoroutine : received msg from applyCh
+[Node 0][Leader] Received AppendEntries reply from 1: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 8, LastApplied: 8, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 8 [00:11:09.933] 
+[Node 0][Leader] peer 1 replicated up to 8
+  | Term: 1, CommitIdx: 8, LastApplied: 8, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 8 [00:11:09.933] 
+[RSM] me=0 | RSM Submit called with req:  16 
+
+[Node 0][Leader] ===Start called{16 {}}===  | Term: 1, CommitIdx: 8, LastApplied: 8, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 8 [00:11:09.984] 
+[Node 0][Leader] Sending AppendEntries to 2: Term 1, LeaderCommitIdx 8, PrevLogIdx 8, PrevLogTerm 1, 1 entries  | Term: 1, CommitIdx: 8, LastApplied: 8, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 9 [00:11:10.033] 
+[Node 0][Leader] Sending AppendEntries to 1: Term 1, LeaderCommitIdx 8, PrevLogIdx 8, PrevLogTerm 1, 1 entries  | Term: 1, CommitIdx: 8, LastApplied: 8, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 9 [00:11:10.033] 
+[Node 2][Follower] Received AppendEntries from 0: Term 1, LeaderCommitIdx 8, PrevLogIdx 8, PrevLogTerm 1, 1 entries  | Term: 1, CommitIdx: 8, LastApplied: 8, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 8 [00:11:10.033] 
+[Node 1][Follower] Received AppendEntries from 0: Term 1, LeaderCommitIdx 8, PrevLogIdx 8, PrevLogTerm 1, 1 entries  | Term: 1, CommitIdx: 8, LastApplied: 8, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 8 [00:11:10.033] 
+[Node 2][Follower] Reply to AppendEntries to 0: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 8, LastApplied: 8, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 9 [00:11:10.033] 
+[Node 1][Follower] Reply to AppendEntries to 0: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 8, LastApplied: 8, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 9 [00:11:10.033] 
+[Node 0][Leader] Received AppendEntries reply from 2: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 8, LastApplied: 8, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 9 [00:11:10.033] 
+[Node 0][Leader] peer 2 replicated up to 9
+  | Term: 1, CommitIdx: 8, LastApplied: 8, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 9 [00:11:10.033] 
+[Node 0][Leader] commit index updated to 9  | Term: 1, CommitIdx: 8, LastApplied: 8, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 9 [00:11:10.034] 
+[Node 0][Leader] applied changes{true {16 {}} 9 false [] 0 0}  | Term: 1, CommitIdx: 9, LastApplied: 8, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 9 [00:11:10.034] 
+[Node 0][Leader] Received AppendEntries reply from 1: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 9, LastApplied: 9, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 9 [00:11:10.034] 
+[Node 0][Leader] peer 1 replicated up to 9
+  | Term: 1, CommitIdx: 9, LastApplied: 9, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 9 [00:11:10.034] 
+[RSM] me=0 | ReadGoroutine : received msg from applyCh
+[RSM] me=0 | RSM Submit received msg:  16 
+
+[Node 0][Leader] Sending AppendEntries to 2: Term 1, LeaderCommitIdx 9, PrevLogIdx 9, PrevLogTerm 1, 0 entries  | Term: 1, CommitIdx: 9, LastApplied: 9, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 9 [00:11:10.133] 
+[Node 0][Leader] Sending AppendEntries to 1: Term 1, LeaderCommitIdx 9, PrevLogIdx 9, PrevLogTerm 1, 0 entries  | Term: 1, CommitIdx: 9, LastApplied: 9, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 9 [00:11:10.133] 
+[Node 2][Follower] Received AppendEntries from 0: Term 1, LeaderCommitIdx 9, PrevLogIdx 9, PrevLogTerm 1, 0 entries  | Term: 1, CommitIdx: 8, LastApplied: 8, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 9 [00:11:10.133] 
+[Node 1][Follower] Received AppendEntries from 0: Term 1, LeaderCommitIdx 9, PrevLogIdx 9, PrevLogTerm 1, 0 entries  | Term: 1, CommitIdx: 8, LastApplied: 8, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 9 [00:11:10.133] 
+[Node 2][Follower] applied changes{true {16 {}} 9 false [] 0 0}  | Term: 1, CommitIdx: 9, LastApplied: 8, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 9 [00:11:10.134] 
+[Node 2][Follower] Reply to AppendEntries to 0: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 9, LastApplied: 9, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 9 [00:11:10.134] 
+[RSM] me=1 | ReadGoroutine : received msg from applyCh
+[Node 1][Follower] applied changes{true {16 {}} 9 false [] 0 0}  | Term: 1, CommitIdx: 9, LastApplied: 8, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 9 [00:11:10.134] 
+[Node 1][Follower] Reply to AppendEntries to 0: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 9, LastApplied: 9, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 9 [00:11:10.134] 
+[RSM] me=2 | ReadGoroutine : received msg from applyCh
+[Node 0][Leader] Received AppendEntries reply from 2: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 9, LastApplied: 9, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 9 [00:11:10.134] 
+[Node 0][Leader] peer 2 replicated up to 9
+  | Term: 1, CommitIdx: 9, LastApplied: 9, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 9 [00:11:10.134] 
+[Node 0][Leader] Received AppendEntries reply from 1: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 9, LastApplied: 9, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 9 [00:11:10.134] 
+[Node 0][Leader] peer 1 replicated up to 9
+  | Term: 1, CommitIdx: 9, LastApplied: 9, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 9 [00:11:10.134] 
+[RSM] me=0 | RSM Submit called with req:  17 
+
+[Node 0][Leader] ===Start called{17 {}}===  | Term: 1, CommitIdx: 9, LastApplied: 9, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 9 [00:11:10.186] 
+[Node 0][Leader] Sending AppendEntries to 2: Term 1, LeaderCommitIdx 9, PrevLogIdx 9, PrevLogTerm 1, 1 entries  | Term: 1, CommitIdx: 9, LastApplied: 9, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 10 [00:11:10.234] 
+[Node 0][Leader] Sending AppendEntries to 1: Term 1, LeaderCommitIdx 9, PrevLogIdx 9, PrevLogTerm 1, 1 entries  | Term: 1, CommitIdx: 9, LastApplied: 9, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 10 [00:11:10.234] 
+[Node 2][Follower] Received AppendEntries from 0: Term 1, LeaderCommitIdx 9, PrevLogIdx 9, PrevLogTerm 1, 1 entries  | Term: 1, CommitIdx: 9, LastApplied: 9, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 9 [00:11:10.234] 
+[Node 1][Follower] Received AppendEntries from 0: Term 1, LeaderCommitIdx 9, PrevLogIdx 9, PrevLogTerm 1, 1 entries  | Term: 1, CommitIdx: 9, LastApplied: 9, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 9 [00:11:10.234] 
+[Node 2][Follower] Reply to AppendEntries to 0: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 9, LastApplied: 9, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 10 [00:11:10.234] 
+[Node 1][Follower] Reply to AppendEntries to 0: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 9, LastApplied: 9, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 10 [00:11:10.234] 
+[Node 0][Leader] Received AppendEntries reply from 2: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 9, LastApplied: 9, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 10 [00:11:10.234] 
+[Node 0][Leader] peer 2 replicated up to 10
+  | Term: 1, CommitIdx: 9, LastApplied: 9, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 10 [00:11:10.234] 
+[Node 0][Leader] commit index updated to 10  | Term: 1, CommitIdx: 9, LastApplied: 9, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 10 [00:11:10.234] 
+[Node 0][Leader] applied changes{true {17 {}} 10 false [] 0 0}  | Term: 1, CommitIdx: 10, LastApplied: 9, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 10 [00:11:10.234] 
+[RSM] me=0 | ReadGoroutine : received msg from applyCh
+[RSM] me=0 | RSM Submit received msg:  17 
+
+[Node 0][Leader] Received AppendEntries reply from 1: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 10, LastApplied: 10, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 10 [00:11:10.234] 
+[Node 0][Leader] peer 1 replicated up to 10
+  | Term: 1, CommitIdx: 10, LastApplied: 10, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 10 [00:11:10.234] 
+[Node 0][Leader] Sending AppendEntries to 2: Term 1, LeaderCommitIdx 10, PrevLogIdx 10, PrevLogTerm 1, 0 entries  | Term: 1, CommitIdx: 10, LastApplied: 10, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 10 [00:11:10.334] 
+[Node 0][Leader] Sending AppendEntries to 1: Term 1, LeaderCommitIdx 10, PrevLogIdx 10, PrevLogTerm 1, 0 entries  | Term: 1, CommitIdx: 10, LastApplied: 10, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 10 [00:11:10.335] 
+[Node 2][Follower] Received AppendEntries from 0: Term 1, LeaderCommitIdx 10, PrevLogIdx 10, PrevLogTerm 1, 0 entries  | Term: 1, CommitIdx: 9, LastApplied: 9, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 10 [00:11:10.335] 
+[Node 1][Follower] Received AppendEntries from 0: Term 1, LeaderCommitIdx 10, PrevLogIdx 10, PrevLogTerm 1, 0 entries  | Term: 1, CommitIdx: 9, LastApplied: 9, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 10 [00:11:10.335] 
+[Node 2][Follower] applied changes{true {17 {}} 10 false [] 0 0}  | Term: 1, CommitIdx: 10, LastApplied: 9, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 10 [00:11:10.335] 
+[Node 2][Follower] Reply to AppendEntries to 0: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 10, LastApplied: 10, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 10 [00:11:10.335] 
+[Node 1][Follower] applied changes{true {17 {}} 10 false [] 0 0}  | Term: 1, CommitIdx: 10, LastApplied: 9, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 10 [00:11:10.335] 
+[Node 1][Follower] Reply to AppendEntries to 0: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 10, LastApplied: 10, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 10 [00:11:10.335] 
+[Node 0][Leader] Received AppendEntries reply from 2: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 10, LastApplied: 10, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 10 [00:11:10.335] 
+[Node 0][Leader] peer 2 replicated up to 10
+  | Term: 1, CommitIdx: 10, LastApplied: 10, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 10 [00:11:10.335] 
+[RSM] me=1 | ReadGoroutine : received msg from applyCh
+[RSM] me=2 | ReadGoroutine : received msg from applyCh
+[Node 0][Leader] Received AppendEntries reply from 1: &{Term:1 Success:true ConflictIdx:0 ConflictTerm:0}  | Term: 1, CommitIdx: 10, LastApplied: 10, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 10 [00:11:10.335] 
+[Node 0][Leader] peer 1 replicated up to 10
+  | Term: 1, CommitIdx: 10, LastApplied: 10, LastIncludedIdx: 0, LastIncludedTerm: 0, LogLen: 10 [00:11:10.335] 
+  ... Passed --  time  2.4s #peers 3 #RPCs    42 #Ops    0
+PASS
+ok  	6.5840/kvraft1/rsm	2.630s

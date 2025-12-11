@@ -22,6 +22,7 @@ type PutArgs struct {
 	Key     string
 	Value   string
 	Version Tversion
+	From int // todo remove
 }
 
 type PutReply struct {
